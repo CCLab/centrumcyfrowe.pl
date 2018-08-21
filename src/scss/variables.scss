@@ -1,0 +1,161 @@
+/* ANIM FUNCTIONS */
+
+@mixin transition($transition...) {
+    -moz-transition: $transition;
+    -o-transition: $transition;
+    -webkit-transition: $transition;
+    transition: $transition;
+}
+
+@mixin transition-delay($transition...) {
+    -moz-transition-delay: $transition;
+    -o-transition-delay: $transition;
+    -webkit-transition-delay: $transition;
+    transition-delay: $transition;
+}
+
+@mixin transform($transform...) {
+    -moz-transform: $transform;
+    -o-transform: $transform;
+    -webkit-transform: $transform;
+    transform: $transform;
+}
+
+@mixin border-radius($radius...) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin bgHover($baseColor) {
+    background-color: $baseColor;
+    &:hover {
+        background-color: darken($baseColor, 8%);
+    }
+}
+
+@mixin customLiStyle($unicode, $padding-left: 1.3em) {
+    padding-left: $padding-left;
+    &:before {
+        content: $unicode; /* FontAwesome Unicode */
+        font-family: FontAwesome;
+        display: inline-block;
+        margin-left: -1 * $padding-left; /* same as padding-left set on li */
+        width: $padding-left; /* same as padding-left set on li */
+    }
+}
+
+/// Triangle helper mixin
+/// @param {Direction} $direction - Triangle direction, either `top`, `right`, `bottom` or `left`
+/// @param {Color} $color [currentcolor] - Triangle color
+/// @param {Length} $size [1em] - Triangle size
+@mixin triangle($direction, $color: currentcolor, $size: 1em) {
+    @if not index(top right bottom left, $direction) {
+        @error "Direction must be either `top`, `right`, `bottom` or `left`.";
+    }
+    width: 0;
+    height: 0;
+    content: '';
+    position: absolute;
+    transform: translate(-50%, 0);
+    border-#{opposite-direction($direction)}: ($size) solid $color;
+    $perpendicular-borders: $size solid transparent;
+    @if $direction==top or $direction==bottom {
+        border-left: $perpendicular-borders;
+        border-right: $perpendicular-borders;
+    }
+    @else if $direction==right or $direction==left {
+        border-bottom: $perpendicular-borders;
+        border-top: $perpendicular-borders;
+    }
+}
+
+/// Returns the opposite direction of each direction in a list
+/// @author Hugo Giraudel
+/// @param {List} $directions - List of initial directions
+/// @return {List} - List of opposite directions
+@function opposite-direction($directions) {
+    $opposite-directions: ();
+    $direction-map: ( 'top': 'bottom', 'right': 'left', 'bottom': 'top', 'left': 'right', 'center': 'center', 'ltr': 'rtl', 'rtl': 'ltr');
+    @each $direction in $directions {
+        $direction: to-lower-case($direction);
+        @if map-has-key($direction-map, $direction) {
+            $opposite-directions: append($opposite-directions, unquote(map-get($direction-map, $direction)));
+        }
+        @else {
+            @warn "No opposite direction can be found for `#{$direction}`. Direction omitted.";
+        }
+    }
+    @return $opposite-directions;
+}
+
+
+/* RESPONSIVNES */
+
+$laptop-max: 1600px;
+$small-laptop-max: 1200px;
+$laptop-min: 1025px;
+$tablet-max: 1024px;
+$tablet-min: 768px;
+$mobile-max: 767px;
+
+@mixin mobile{
+    @media (max-width: $mobile-max) {
+        @content
+    }
+}
+
+@mixin tablet{
+    @media (max-width: $tablet-max) {
+        @content
+    }
+}
+
+@mixin tablet-only{
+    @media (max-width: $tablet-max) and (min-width: $tablet-min) {
+        @content
+    }
+}
+
+@mixin tablet-and-greater{
+    @media (min-width: $tablet-min) {
+        @content
+    }
+}
+
+@mixin laptop{
+    @media (max-width: $laptop-max){
+        @content
+    }
+}
+
+@mixin small-laptop{
+    @media (max-width: $small-laptop-max){
+        @content
+    }
+}
+
+@mixin laptop-only{
+    @media (max-width: $laptop-max) and (min-width: $laptop-min){
+        @content
+    }
+}
+
+@mixin laptop-and-greater{
+    @media (min-width: $laptop-min) {
+        @content
+    }
+}
+
+$dark-gray: #2a2a2a;
+$light-gray: #5e5e5e;
+$dirty-white: #f4f3f0;
+
+$orange: #ff5722;
+$white: #fff;
+
+
+$main-bg: $white;
+$main-text: $dark-gray;
+
+$cookies-height: 32px;

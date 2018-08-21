@@ -1,0 +1,13 @@
+<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon/old/1/80/rzecznictwo">
+            <g id="Group">
+                <rect id="Rectangle" x="0" y="0" width="80" height="80"></rect>
+                <path d="M22,52 C21.9936691,62.5025237 13.4885282,71.0072404 3,71" id="Stroke-7" stroke="#FF5722" stroke-width="10"></path>
+                <path d="M43,52 C42.9936691,62.5025237 34.4885282,71.0072404 24,71" id="Stroke-9" stroke="#FF5722" stroke-width="10"></path>
+                <path d="M58,30 C58.0063309,19.498382 66.5114718,10.9927596 77,11" id="Stroke-13" stroke="#5E5E5E" stroke-width="10"></path>
+                <path d="M37,30 C37.0063309,19.4979769 45.5114718,10.99276 56,11" id="Stroke-15" stroke="#5E5E5E" stroke-width="10"></path>
+            </g>
+        </g>
+    </g>
+</svg>

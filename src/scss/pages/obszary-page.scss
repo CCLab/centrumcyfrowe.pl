@@ -1,0 +1,28 @@
+main.obszary-wszystkie {
+    .area-block {
+        min-height: 320px;
+    }
+    a:hover, 
+    a:focus {
+        color: $orange;
+        p {
+            color: $main-text;
+        }
+    }
+
+    section {
+        padding-top: 0;
+        margin-top: 64px;
+    }
+}
+
+.obszary-wszystkie,
+.obszary-dzialan {
+    a:not(.button) {
+        transition: none;
+        &:hover p, &:focus p{
+            color: $main-text;
+        }
+    }
+}
+

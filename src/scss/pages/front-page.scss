@@ -1,0 +1,268 @@
+/* HEADER */
+.header {
+    height: 100vh;
+    min-height: 700px;
+    background: url('../images/header-bg.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    max-width: 100vw;
+    position: relative;
+    @include mobile{
+        min-height: 0;
+    }
+    .content-box {
+        padding-top: 307px;
+        @include laptop{
+            padding-top: 200px;
+        }
+        h1 {
+            font-weight: bold;
+            font-size: 48px;
+            line-height: 1.17;
+            letter-spacing: normal;
+            text-align: left;
+            margin: 0 0 08px 0;
+        }
+        h4 {
+            font-size: 22px;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.27;
+            letter-spacing: normal;
+            text-align: left;
+            margin: 0 0 32px 0;
+        }
+    }
+
+    $sideCodeWidth: 850px;
+    .side-code{
+        @include mobile{
+            display: none;
+        }
+        position: absolute;
+        top: 0;
+        right: -$sideCodeWidth;
+        width: $sideCodeWidth;
+        height: 100vh;
+        z-index: 999;
+        background: #1d1f20;
+        @include transition(1s all ease-in-out);
+
+        .toggle-code{
+            span{
+                display: inline-block;
+                border-bottom: 2px solid $white;
+                border-left: 2px solid $white;
+                @include transition(.3s all);
+                @include transform(rotate(45deg));
+                width: 20px;
+                height: 20px;
+            }
+            position: absolute;
+            top: calc(50% - 10px);
+            left: -45px;
+            cursor: pointer;
+
+            .tooltip-container{
+                position: absolute;
+                display: block;
+                &:focus{
+                    border: none;
+                    outline: none;
+                }
+                .tooltip-images{
+                    position: relative;
+                    background: none;
+                    bottom: auto;
+                    right: auto;
+                    &:focus{
+                        border: none;
+                        outline: none;
+                    }
+                    .label{
+                        // top: -40px;
+                        left: -25px;
+                        color: #000;
+                        font-weight: normal;
+                        white-space: unset;
+                        
+                        &:after{
+                            left: calc(50% + 30px);
+                        }
+                    }
+                }
+            }
+
+            &:hover{
+                .tooltip-container{
+                    .tooltip-images{
+                        label{
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.show{
+            @include transform(translateX(-$sideCodeWidth));
+
+            .toggle-code span{
+                @include transform(rotate(225deg));
+            }
+        }
+
+        .numbers-container{
+            width: 30px;
+            text-align: right;
+            float: left;
+            color: #333333;
+            margin: 0 25px 0 10px;
+        }
+        .code-container{
+            width: $sideCodeWidth;
+            float: left;
+            height: 100vh;
+            overflow-y: scroll;
+            pre{
+                margin: 0;
+                background: none;
+                border: none;
+            }
+            table{
+                margin: 0;
+                max-width: $sideCodeWidth;
+                tbody td, tbody th{
+                    border: none;
+                }
+            }
+        }
+    }
+}
+section {
+    h3 {
+        margin: 20px 0 10px 0;
+    }
+}
+
+/* SECTION: OBSZARY DZIAŁAŃ */
+section.obszary-dzialan {
+    //background: $white;
+    padding-bottom: 60px;
+    .area-block {
+        margin: 40px 0 20px 0;
+        h4 {
+            transition: .2s ease-in-out;
+            margin: 24px 0
+        }
+        a {
+            &:hover,&:focus {
+                text-decoration: none;
+                color: $main-text;
+                p {
+                    color: $main-text;
+                }
+                h4 {
+                    color: $orange;
+                }
+            }
+        }
+    }
+    h4+p {
+        font-size: 16px;
+        font-weight: normal;
+    }
+}
+
+/* SECTION: CZYTELNIA */
+section.czytelnia {
+    background-color: $dirty-white;
+
+    .tooltip-images {
+        right: 30px;
+        bottom: 15px;
+    }
+}
+
+/* SECTION: PROJEKTY */
+section.projekty {
+    background: $main-text;
+    color: $main-bg;
+    overflow: hidden;
+    .project {
+        a>div:not(.tooltip-container){
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            padding: 32px;
+            min-height: 450px;
+            h3 {
+                min-height: 72px;
+                color: $white;
+            }
+            @include transition(2s background);
+            transition: 2s ease-in-out;
+            background-image: url('../images/projekty-projects-placeholder.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            button:not(.button){
+                color: $dark-gray;
+            }
+        }
+    }
+    a.button {
+        margin-top: 40px;
+        // color: $dark-gray;
+    }
+
+    a {
+        color: white;
+        text-decoration: none;
+
+    }
+    .swiper-container-projects-home{
+        padding-left: 15px;
+
+        @media (max-width: 1200px) {
+            width: calc(970px + ((100% - 970px) / 2));
+            margin-left: calc((100% - 970px) / 2);
+        }
+
+        @media (max-width: 970px) {
+            width: calc(750px + ((100% - 750px) / 2));
+            margin-left: calc((100% - 750px) / 2);
+        }
+
+        @media (max-width: 767px) {
+            width: 100%;
+            margin-left: 0;
+        }
+
+        .swiper-wrapper {
+            white-space: nowrap;
+            .swiper-slide {
+                width: 370px;
+                float: none;
+                display: inline-block;
+                white-space: normal;
+                vertical-align: middle;
+            }
+        }
+    }
+}
+
+/* SECTION: NEWSLETTER */
+section.newsletter {
+    background: #f1f1f1;
+    .input-email {
+        width: 268px;
+        padding: 15px 32px;
+        border: 0;
+        outline: 0;
+        font-weight: bold;
+        border: 2px solid #f1f1f1;
+    }
+}

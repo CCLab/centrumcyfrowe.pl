@@ -1,0 +1,38 @@
+main.zespol {
+    .team-box {
+        margin: 45px 0;
+        .team-member {
+            margin-bottom: 18px;
+            min-height: 460px;
+            img {
+                min-height: 240px;
+                width: 255px;
+                height: auto;
+            }
+            h3 {
+                // font-size: 2.4px;
+                margin: 16px 0 8px 0;
+            }
+            p {
+                font-size: 18px;
+                color: $main-text;
+                font-weight: 600;
+
+            }
+        }
+    }
+}
+
+main.zespol-osoba {
+    
+    p:first-child {
+        margin-top: 0;
+    }
+    
+    img {
+        width: 100%;
+    }
+    .single:last-child {
+        margin-bottom: 58px;
+    }
+}

@@ -1,0 +1,22 @@
+.downloadable-files-list {
+    margin: 0;
+    padding:0 0 0 0;
+    -webkit-padding-start: 40px;
+    font-weight: bold;
+    list-style-image: url('../images/download.svg');
+    color: $orange;
+    a {
+        color: $orange;
+    }
+    li {
+        display: list-item;
+        word-wrap: break-word;    
+    }
+}
+
+@-moz-document url-prefix() {
+    .downloadable-files-list {
+        margin-left: 15px;
+        padding: 0 15px;
+    }
+}

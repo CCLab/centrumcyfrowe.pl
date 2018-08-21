@@ -1,0 +1,67 @@
+#projects-filter-box, #articles-filter-box, #news-filter-box, #tags-filter-box {
+    margin: 64px 0 16px 0;
+    background: #fff;
+    >div{display: table;}
+    >div>ul {
+        display: table-cell;
+        margin: 0;
+        vertical-align: middle;
+    }
+    .search-box {
+        float: right;
+        display: table-cell;
+        vertical-align: middle;
+        height: 100%;
+        i.fa {
+            padding-left: 20px;
+        }
+        input {
+            padding: 24px;
+            font-size: 15px;
+            border: 0;
+            outline: 0;
+            background: transparent;
+        }
+    }
+    .separator {
+        display: inline-block;
+        //height: 92px;
+        //line-height: 92px;
+        div {
+            width: 1px;
+            height: 36px;
+            background: #979797;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        &+.search-icon {
+             float: right;
+             height: 92px;
+             line-height: 92px;
+             padding-left: 20px;
+             i.fa {
+                 cursor: pointer;
+                 transition: 0.2s ease-in-out;
+                 &:hover {
+                     color: $orange;
+                 }
+             }
+        }
+    }
+}
+
+main.project-single {
+    .project-logo {
+        img {
+            width: 100%;
+        }
+    }
+    p {
+        margin-top: 16px;
+    }
+    .side-info {
+        p a {
+            word-break: break-word;
+        }
+    }
+}

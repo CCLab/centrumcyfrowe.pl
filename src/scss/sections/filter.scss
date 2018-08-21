@@ -1,0 +1,50 @@
+.filter-box {
+  .filter-list {
+    background: $white;
+    list-style: none;
+    margin-bottom: 16px;
+    >li {
+      display: inline-block;
+      font-size: 14px;
+      padding: 24px 10px;
+      a {
+        svg{
+          stroke: #000;
+          @include transition(.2s ease-in-out);
+        }
+      }
+      &.bold a {
+        font-weight: bold;
+        color: $main-text;
+      }
+      &.bold a, a{
+        &.active {
+          color: $orange ;
+          text-decoration: none;
+        }
+      }
+    }
+    .dropdown {
+      position: relative;
+      &:hover {
+        ul.submenu {display: block;}
+      }
+      ul.submenu {
+        z-index: 7;
+        display: none;
+        margin: -19px 0 0 0;
+        position: absolute;
+        background: $white;
+        top: 100%;
+        left: 0;
+        white-space: nowrap;
+        box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+        padding: 23px 38px 23px 23px;
+        li {
+          padding: 0;
+          list-style: none;
+        }
+      }
+    }
+  }
+}

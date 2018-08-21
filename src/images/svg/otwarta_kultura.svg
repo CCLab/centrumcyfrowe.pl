@@ -1,0 +1,14 @@
+ <svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon/old/1/80/kultura">
+            <g id="Group">
+                <rect id="Rectangle" x="0" y="0" width="80" height="80"></rect>
+                <path d="M47.0552308,9 C47.0552308,9 42.0058316,17.6595617 44.8898086,21.8024617 C47.7746726,25.9435605 57.5,23.9990994 57.5,23.9990994 C57.5,23.9990994 67.2253274,22.0546382 70.1101914,26.1975383 C72.9941684,30.338637 67.9447692,39 67.9447692,39"
+                    id="Stroke-5" stroke="#FF5722" stroke-width="10" transform="translate(57.500000, 24.000000) rotate(34.000000) translate(-57.500000, -24.000000) "></path>
+                <path d="M71,80 C63.2112519,72.6856431 62.9744948,60.5999461 70.4714911,53" id="Stroke-11" stroke="#5E5E5E" stroke-width="10"
+                    transform="translate(68.000000, 66.500000) rotate(43.000000) translate(-68.000000, -66.500000) "></path>
+                <polygon id="Stroke-29" stroke="#5E5E5E" stroke-width="10" points="42 62.4378346 12.7852551 69 6 39.5603807 35.2147449 33"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
