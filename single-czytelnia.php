@@ -74,7 +74,7 @@
 					<h5 class="title">Data</h5>
 					<span><?php echo get_the_date('d M Y') ?></span>
 
-                    <h5 class="title" style="margin-top: 20px;">Powiązane obszary</h5>
+                    <h5 class="title" style="margin-top: 10px;">Powiązane obszary</h5>
 					<?php foreach (get_field('powiazane_obszary') as $area){?>
                         <a href="<?php echo the_permalink($area->ID) ?>"><?php echo $area->post_title; ?></a>
 					<?php } ?>

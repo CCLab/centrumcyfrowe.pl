@@ -205,9 +205,8 @@ function cc_tooltip($image){
                 <?php }else if($image['title']){ ?>
                     Tytuł: <?php echo $image['title'] ?>
                     <br>
-                <?php } ?>
+                <?php }
 
-                <?php
                     $printLicense = false;
                     $license = get_field( 'licencja', $image['ID'] );
                     $licenseImg = get_template_directory_uri() . '/';
@@ -227,16 +226,15 @@ function cc_tooltip($image){
 
 	                    $licenseUrl = get_field('wersja_licencji_' . $license, $image['ID']);
                     }
-                ?>
 
-	            <?php if($printLicense){ ?>
+                if($printLicense){ ?>
                     <a href="<?php echo $licenseUrl ?>" target="_blank">
 		                <img src="<?php echo $licenseImg ?>" alt="<?php echo get_field('licencja', $image['ID']) ?>">
                     </a>
                     <br>
-	            <?php } ?>
+	            <?php }
 
-	            <?php if (get_field('autor', $image['ID'])){?>
+	            if (get_field('autor', $image['ID'])){?>
                     Autor: <?php the_field('autor', $image['ID']) ?>
                     <br>
 	            <?php } ?>
@@ -246,5 +244,3 @@ function cc_tooltip($image){
     </div>
 	<?php
 }
-
-?>

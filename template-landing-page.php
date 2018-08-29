@@ -68,7 +68,7 @@ get_header();
 
 <main class="landing-page" id="landing-page">
     <div class="container">
-
+        
             <div class="col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">
                 <a href="<?php the_field('link_bannera') ?>" target="_blank">
                     <div class="banner banner-mobile">

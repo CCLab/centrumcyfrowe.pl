@@ -25,7 +25,7 @@
 
 	<?php if(get_page_template_slug() === 'template-landing-page.php' && !$isBanner): $isBanner = true ?>
 		 <div class="col-md-2 col-sm-12 col-xs-12 hidden-sm hidden-xs">
-            <a href="<?php the_field('link_bannera') ?>" target="_blank">
+            <a href="<?php the_field('link_bannera') ?>">
                 <div class="banner banner-desktop">
                     <?php if (get_field('co_zawiera_banner') === 'tekst') : ?>
                     <div class="placeholder">

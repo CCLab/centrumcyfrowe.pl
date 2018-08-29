@@ -21,7 +21,7 @@
     ?>
 
     <div class="<?php echo $classes ?> <?php echo $tooltipEnabled ? 'tooltip-enabled' : '' ?>">
-        <img src="<?php echo $obrazek['url'] ?>" alt="<?php echo $obrazek['alt'] ?>">
+        <img src="<?php echo $obrazek['url'] ?>" alt="<?php echo $obrazek['title'] ?>">
         <?php cc_tooltip($obrazek) ?>
         <div class="image-description"> <?php the_sub_field('podpis') ?></div>
     </div>

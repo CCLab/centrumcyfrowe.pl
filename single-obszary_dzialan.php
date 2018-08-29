@@ -83,35 +83,40 @@
 				<div class="col-md-8 col-sm-12 col-xs-12 col-md-offset-2 col-sm-offset-0 col-xs-offset-0">
 					<h3><?php the_field('zespol-naglowek') ?></h3>
 				</div>
-				<?php 
-					$osoby = get_field('zespol-osoba');
-					foreach ($osoby as $key => $osoba ): 
-				?>
-				<div class="col-md-4 col-sm-6 col-xs-12 <?php if($key%2 === 0): ?>col-md-offset-2 col-sm-offset-0 col-xs-offset-0<?php endif;?> team-member <?php if ($key >= 2) : ?>padding-12<?php endif; ?>">
-					<a href="<?php echo $osoba->guid ?>">
+                <div class="col-md-12">
+                    <div class="row">
 
-						<div class="team-member-image">
-                            <?php if(get_field('zdjecie', $osoba->ID)){ ?>
-                                <img src="
-                                    <?php
-                                        $obrazek = get_field('zdjecie', $osoba->ID);
-                                        echo $obrazek['url'] ?>" alt="<?php echo $osoba->post_title . ' - zdjęcie'
-                                    ?>
-                                ">
+                        <?php
+                            $osoby = get_field('zespol-osoba');
+                            foreach ($osoby as $key => $osoba ):
+                        ?>
+
+                            <?php if($key%2 === 0){ ?>
+                                </div><div class="row">
                             <?php } ?>
-						</div>
 
-						<div class="team-member-description">
+                            <div class="col-md-4 col-sm-6 col-xs-12 <?php if($key%2 === 0): ?>col-md-offset-2 col-sm-offset-0 col-xs-offset-0<?php endif;?> team-member <?php if ($key >= 2) : ?>padding-12<?php endif; ?>">
+                                <a href="<?php echo $osoba->guid ?>">
+                                    <div class="team-member-image">
+                                        <?php if(get_field('zdjecie', $osoba->ID)){ ?>
+                                            <img src="<?php
+                                                    $obrazek = get_field('zdjecie', $osoba->ID);
+                                                    echo $obrazek['url'] ?>" alt="<?php echo $osoba->post_title . ' - zdjęcie'
+                                                ?>">
+                                        <?php } ?>
+                                    </div>
 
-							<span class="team-member-name"><?php echo $osoba->post_title; ?></span>
-							<span class="team-member-occupation"><?php the_field('stanowisko', $osoba->ID) ?></span>
+                                    <div class="team-member-description">
 
-						</div>
+                                        <span class="team-member-name"><?php echo $osoba->post_title; ?></span>
+                                        <span class="team-member-occupation"><?php the_field('stanowisko', $osoba->ID) ?></span>
 
-					</a>
-				</div>
-				<?php endforeach; ?>
-
+                                    </div>
+                                </a>
+                            </div>
+				        <?php endforeach; ?>
+                    </div>
+                </div>
 			</div>
 		</div>
 

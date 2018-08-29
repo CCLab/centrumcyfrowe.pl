@@ -2,7 +2,7 @@
 
 WP theme based on Bootstrap and jQuery with gulp integration.
 
-## Template engine Installation
+## Installation
 
 * Install Node.js
 * Install Yarn (optionally)
@@ -13,5 +13,3 @@ WP theme based on Bootstrap and jQuery with gulp integration.
   * ```npm install``` or ```yarn```
 * Run app (This will build dist folder and start watch task)
   * ```gulp```
-  
-## Wordpress installation instruction in installation catalogue
