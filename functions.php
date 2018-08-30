@@ -70,6 +70,16 @@ function remove_recent_comments_style() {
 }
 add_action('widgets_init', 'remove_recent_comments_style');
 
+//REMOVE "POSTS" FROM ADMIN MENU
+
+function remove_menus(){
+  
+  remove_menu_page( 'edit.php' );                 
+   
+}
+add_action( 'admin_menu', 'remove_menus' );
+
+
 // ACF OPTIONS
 // function my_acf_init() {
 // 	acf_update_setting('google_api_key', 'AIzaSyCRPjv9FXcWodJmJ1YU4Nq87F0VMjFl_NE');
@@ -159,6 +169,7 @@ function disable_comment_form_fields($fields)
 add_filter('comment_form_default_fields', 'disable_comment_form_fields');
 
 
+
 // CUSTOM FUNCTIONS
 function print_image($image) {
 	if($image['mime_type'] === "image/svg+xml")
@@ -242,5 +253,11 @@ function cc_tooltip($image){
 
         </div>
     </div>
+
+
 	<?php
+
+
 }
+
+
