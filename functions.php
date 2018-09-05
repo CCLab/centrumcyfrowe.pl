@@ -21,13 +21,24 @@ add_image_size( 'project-thumbnail', 370, 450, true);
 
 function getLogoImage(){
 
-	$httpContext = stream_context_create([
+	/*$httpContext = stream_context_create([
 		'ssl' => [
 			'verify_peer' => false,
 			'verify_peer_name' => false
 		]
-	]);
-	echo file_get_contents(get_template_directory_uri() . '/dist/images/logo.svg', false, $httpContext);
+	]);*/
+	//file_get_contents(get_template_directory_uri() . '/dist/images/logo.svg', false, $httpContext);
+
+    echo "
+        <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"47\" height=\"42\" viewBox=\"0 0 47 42\">
+            <g fill=\"none\" fill-rule=\"evenodd\">
+                <path fill=\"#FF5722\" d=\"M23.722 24.693a4.605 4.605 0 0 1-3.195 1.294c-2.567 0-4.655-2.113-4.655-4.71s2.088-4.71 4.655-4.71c1.237 0 2.36.494 3.194 1.293l3.59-3.631a9.638 9.638 0 0 0-6.784-2.797c-5.365 0-9.73 4.417-9.73 9.845 0 5.428 4.365 9.845 9.73 9.845a9.637 9.637 0 0 0 6.784-2.798l-3.589-3.631z\"
+                />
+                <path fill=\"#2A2A2A\" d=\"M40.218 3.216l-3.59 3.625c7.026 8.05 7.026 20.2 0 28.248l3.59 3.626c8.995-10.053 8.994-25.445 0-35.499zM32.39 30.811c4.712-5.678 4.712-14.012 0-19.691l-3.602 3.637c2.766 3.652 2.766 8.766 0 12.417l3.602 3.637zm-.64-21.13l3.579-3.614C31.578 2.327 26.429.013 20.754.013 9.31.013 0 9.413 0 20.966c0 11.553 9.31 20.953 20.754 20.953 5.675 0 10.824-2.314 14.575-6.055l-3.58-3.614c-2.833 2.815-6.716 4.556-10.995 4.556-8.651 0-15.69-7.106-15.69-15.84s7.039-15.84 15.69-15.84c4.279 0 8.161 1.74 10.994 4.555z\"
+                />
+            </g>
+        </svg>
+    ";
 }
 
 function getSvg($file){
@@ -38,7 +49,8 @@ function getSvg($file){
 			'verify_peer_name' => false
 		]
 	]);
-	echo file_get_contents($file, false, $httpContext);
+	//echo file_get_contents($file, false, $httpContext);
+    echo "<img class='svg-image' src='" . $file . "' />";
 }
 
 // REGISTER SIDEBAR
@@ -69,16 +81,6 @@ function remove_recent_comments_style() {
 	remove_action('wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style'));
 }
 add_action('widgets_init', 'remove_recent_comments_style');
-
-//REMOVE "POSTS" FROM ADMIN MENU
-
-function remove_menus(){
-  
-  remove_menu_page( 'edit.php' );                 
-   
-}
-add_action( 'admin_menu', 'remove_menus' );
-
 
 // ACF OPTIONS
 // function my_acf_init() {
@@ -168,6 +170,14 @@ function disable_comment_form_fields($fields)
 }
 add_filter('comment_form_default_fields', 'disable_comment_form_fields');
 
+//REMOWE "POSTS" FORM ADMIN MENU (DASHBOARD)
+
+function remove_menus(){
+  
+  remove_menu_page( 'edit.php' );                 
+   
+}
+add_action( 'admin_menu', 'remove_menus' );
 
 
 // CUSTOM FUNCTIONS
@@ -253,11 +263,5 @@ function cc_tooltip($image){
 
         </div>
     </div>
-
-
 	<?php
-
-
 }
-
-
