@@ -265,3 +265,10 @@ function cc_tooltip($image){
     </div>
 	<?php
 }
+
+// Wpisy w czytelni muszą mieć kategorie.
+function custom_rpc_post_types( $post_types ) {
+    $post_types['czytelnia'] = array('kategoria' => array('message' => 'Wybierz co najmniej jedną kategorię.'));
+    return $post_types;
+}
+add_filter('rpc_post_types', 'custom_rpc_post_types');
