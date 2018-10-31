@@ -119,17 +119,46 @@ function get_projects() {
                 </div>
             </a>
         <?php } ?>
-	    <?php if($projects->max_num_pages > 1) { ?>
-            <div class="articles-pagination">
-			    <?php
-			    $page_number = intval( $page_number );
-			    for ( $i = 1; $i <= $projects->max_num_pages; $i ++ ) { ?>
+	    <?php if($projects->max_num_pages > 1) {
 
-                    <a href="#" data-pagenumber="<?php echo $i ?>"
-                       class="<?php echo $i === $page_number ? 'active' : '' ?>">
-                        <span class="page"></span>
-                    </a>
-			    <?php } ?>
+                        $page_number = intval( $page_number );
+                ?>
+                <div class="articles-pagination">
+
+                    <?php if($page_number > 1){ ?>
+                        <a href="#" data-pagenumber="1">
+                            pierwsza
+                        </a>
+                    <?php } ?>
+
+                    <?php if($page_number > 1){ ?>
+                        <a href="#" data-pagenumber="<?php echo $page_number - 1 ?>">
+                            poprzednia
+                        </a>
+                    <?php } ?>
+
+                    <?php
+                        $i = $page_number - 5 < 1 ? 1 : $page_number - 5;
+                        for ( $j = 0; $i <= $projects->max_num_pages && $j < 10; $i++, $j++ ) {
+                        ?>
+                        <a href="#" data-pagenumber="<?php echo $i ?>"
+                           class="<?php echo $i === $page_number ? 'active' : '' ?>">
+                            <?php echo $i ?>
+                        </a>
+                    <?php } ?>
+
+                        <?php if($page_number < $projects->max_num_pages){ ?>
+                        <a href="#" data-pagenumber="<?php echo $page_number + 1 ?>">
+                            następna
+                        </a>
+                        <?php } ?>
+
+                        <?php if($page_number < $projects->max_num_pages){ ?>
+                        <a href="#" data-pagenumber="<?php echo $projects->max_num_pages ?>">
+                            ostatnia
+                        </a>
+                        <?php } ?>
+
             </div>
 		    <?php
 	    }
