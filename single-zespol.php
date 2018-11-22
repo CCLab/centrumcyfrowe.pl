@@ -36,7 +36,7 @@
 
                     <?php if(get_field('zdjecie', $autor->ID)){ ?>
                         <div class="col-md-4 col-sm-4 col-xs-6 center-block">
-                            <img src="<?php echo get_field('zdjecie')['sizes']['large'] ?>" alt="<?php echo get_field('zdjecie')['title'] ?>">
+                            <img class="osoba" src="<?php echo get_field('zdjecie')['sizes']['large'] ?>" alt="<?php echo get_field('zdjecie')['title'] ?>">
                         </div>
                         <div class="col-md-7 col-sm-7 col-xs-12">
                             <p> <?php the_field('opis-osoby') ?></p>
