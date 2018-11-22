@@ -30,7 +30,7 @@ function get_news() {
 		array_push($meta_query, $areas_array);
 	}
 
-    
+
     $projects = new WP_Query(array(
         'post_type' => array('czytelnia'),
         'post_status' => 'publish',
@@ -57,7 +57,7 @@ function get_news() {
                 <div class="row single-article">
                     <div class="col-md-12 article-container">
                         <div class="row">
-                       
+
                             <div class="col-md-4 col-sm-7 col-xs-12">
                                 <ol class="breadcrumb">
                                     <li><?php echo get_the_date('d.m.Y') ?> </li>
@@ -78,8 +78,10 @@ function get_news() {
 
                             <div class="col-md-4 col-sm-5 article-image <?php echo is_tooltip_enabled($image) ? 'tooltip-enabled' : '' ?>">
                                 <div>
-                                    <img src="<?php echo $image['sizes']['list-thumbnail'] ?>" alt="<?php echo $image['alt'] ?>" />
-
+                                    <img src="<?php echo $image['sizes']['list-thumbnail'] ?>" alt="<?php echo $image['alt'] ?>" srcset="<?php
+                                        echo $image['sizes']['medium_large'] . ' ' . $image['sizes']['medium_large-width'] . 'w, ';
+                                        echo $image['sizes']['list-thumbnail'] . ' ' . $image['sizes']['list-thumbnail-width'] . 'w ';
+                                    ?>" sizes="(min-width: 768px) 353px, calc(100% - 60px)">
 	                                <?php cc_tooltip($image) ?>
                                 </div>
                             </div>
