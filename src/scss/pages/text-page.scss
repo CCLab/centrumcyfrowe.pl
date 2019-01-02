@@ -205,10 +205,13 @@ a.article-link {
             height: 200px;
         }
         >div {
-            display: inline-block;
+            display: flex;
+	    justify-content: center;
             position: relative;
             height: 100%;
             width: 100%;
+	    overflow: hidden;
+	    vertical-align: middle;
         }
         &:hover {
             img {
