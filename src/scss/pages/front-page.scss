@@ -251,6 +251,12 @@ section.projekty {
                 vertical-align: middle;
             }
         }
+
+        .swiper-button-next, .swiper-button-prev {
+            @media (max-width: 767px) {
+                display: none;
+            }
+        }
     }
 }
 
