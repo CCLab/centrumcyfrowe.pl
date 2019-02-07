@@ -63,7 +63,10 @@ function get_related_posts($custom_key) {
 						<div class="col-md-5 col-sm-5 article-image <?php echo is_tooltip_enabled($image) ? 'tooltip-enabled' : '' ?>">
 							<div>
 								<a href="<?php the_permalink() ?>">
-									<img src="<?php echo $image['sizes']['list-thumbnail'] ?>" alt="<?php echo $image['alt'] ?>">
+									<img src="<?php echo $image['sizes']['list-thumbnail'] ?>" alt="<?php echo $image['alt'] ?>" srcset="<?php
+										echo $image['sizes']['medium_large'] . ' ' . $image['sizes']['medium_large-width'] . 'w, ';
+										echo $image['sizes']['list-thumbnail'] . ' ' . $image['sizes']['list-thumbnail-width'] . 'w ';
+									?>" sizes="(min-width: 768px) 353px, calc(100% - 60px)">
 								</a>
 
 								<?php cc_tooltip($image) ?>

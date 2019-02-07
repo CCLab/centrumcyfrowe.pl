@@ -47,7 +47,7 @@ function get_articles() {
             'terms' => $filters['categories']
         ) );
 	}
-    
+
     $projects = new WP_Query(array(
         'post_type' => array('czytelnia'),
         'post_status' => 'publish',
@@ -70,7 +70,7 @@ function get_articles() {
                 <div class="row single-article">
                     <div class="col-md-12 article-container">
                         <div class="row">
-                        <?php 
+                        <?php
                             $taxy = get_taxonomies();
                             $current_term = wp_get_post_terms(get_the_ID(), $taxy["kategoria"])[0];
                         ?>
@@ -95,7 +95,10 @@ function get_articles() {
 
                             <div class="col-md-4 col-sm-5 article-image <?php echo is_tooltip_enabled($image) ? 'tooltip-enabled' : '' ?>">
                                 <div>
-                                    <img src="<?php echo $image['sizes']['list-thumbnail'] ?>" alt="<?php echo $image['alt'] ?>" />
+                                    <img src="<?php echo $image['sizes']['list-thumbnail'] ?>" alt="<?php echo $image['alt'] ?>" srcset="<?php
+                                        echo $image['sizes']['medium_large'] . ' ' . $image['sizes']['medium_large-width'] . 'w, ';
+                                        echo $image['sizes']['list-thumbnail'] . ' ' . $image['sizes']['list-thumbnail-width'] . 'w ';
+                                    ?>" sizes="(min-width: 768px) 353px, calc(100% - 60px)">
 
 	                                <?php cc_tooltip($image) ?>
                                 </div>

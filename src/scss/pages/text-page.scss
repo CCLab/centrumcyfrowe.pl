@@ -85,6 +85,7 @@ p {
     }
     a {
         color: $orange;
+	word-break: break-word;
         &:hover,&:focus {
             text-decoration: underline;
         }
@@ -197,6 +198,8 @@ a.article-link {
     .article-image {
         text-align: right;
         overflow: hidden;
+        position: relative;
+        
         @include mobile{
             padding-top: 20px;
         }
@@ -205,23 +208,27 @@ a.article-link {
             height: 200px;
         }
         >div {
-            display: inline-block;
+            display: flex;
+	    justify-content: center;
             position: relative;
             height: 100%;
             width: 100%;
+	    overflow: hidden;
+	    vertical-align: middle;
         }
         &:hover {
             img {
                 // transform: scale(1.1);
             } 
         }
-        .tooltip-container .label{
-            img{
-                height: auto;
+        .tooltip-container {
+            position: static;
+            
+            .label{
+                img{
+                    height: auto;
+                }
             }
-        }
-        .tooltip-container .tooltip-images{
-            right: 20px;
         }
     }
 }
@@ -296,6 +303,10 @@ a.article-link {
     text-align: center;
     margin-top: 20px;
     a{
+        color: $orange;
+        margin:0 3px;
+        font-weight:normal;
+
         span{
             display: inline-block;
             width: 12px;
@@ -305,10 +316,8 @@ a.article-link {
             background: $orange;
             opacity: .5;
         }
-        &.active, &:hover {
-            span {
-                opacity: 1;
-            }
+        &.active {
+            font-weight: bold;
         }
     }
 }
@@ -394,13 +403,13 @@ table {
 }
 .tooltip-container {
     display: none;
-	width: 100%;
-	box-sizing: content-box;
-	height: 100%;
-	position: relative;
-	top: 0;
-	left: 0;
-	.tooltip-images {
+    width: 100%;
+    box-sizing: content-box;
+    height: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    .tooltip-images {
         z-index: 2;
 		position: absolute;
 		right: 32px;
@@ -414,24 +423,25 @@ table {
             border: none;
             outline: none;
         }
-		.label {
-			opacity: 0;
+        .label {
+            opacity: 0;
             display: none;
             background: $white;
             color: $light-gray;
             width: 200px;
             padding: 16px;
             text-align: left;
-			border-radius: 15px;
-			box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
-			//display: block;
-			position: absolute;
-			bottom: 1px;
+            border-radius: 15px;
+            box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+            //display: block;
+            position: absolute;
+            bottom: 1px;
             left: 50%;
             transform: translateX(-80%) translateY(0) translateY(-32px);
-			transition: 0.2s ease-in-out;
+            transition: 0.2s ease-in-out;
             line-height: normal;
-            //pointer-events: none;
+            white-space: normal;
+
             p {
                 color: $main-text;
                 font-size: 14px;
@@ -460,16 +470,23 @@ table {
 			}		
 		}
 
-		&:hover, &:focus {
+        &:hover, &:focus {
             .label {
-                opacity: 1;
-                display: block;
+                @media (min-width: 768px) {
+                    opacity: 1;
+                    display: block;
+                }
             }
         }
-        // &:focus .label {
-        //     opacity: 1;
-        // }
-	}
+        &.hover {
+            .label {
+                @media (max-width: 767px) {
+                    opacity: 1;
+                    display: block;
+                }
+            }
+        }
+    }
 }
 
 .youtube.responsive-container {
@@ -599,6 +616,8 @@ table {
         vertical-align: middle;
         border-radius: 50%;
         display: inline-block;
+        max-width: 20%;
+
         img {
             width: 48px;
             height: 48px;
@@ -610,6 +629,8 @@ table {
         display: inline-block;
         vertical-align: middle;
         margin-left: 13px;
+        max-width: 75%;
+        
         .team-member-occupation {color: $light-gray;}
         .team-member-name {color: $orange;}
         span {
