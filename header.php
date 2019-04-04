@@ -29,6 +29,46 @@
         var template_dir = "<?php echo get_template_directory_uri() ?>";
     </script>
     
+	<!-- zdjęcie z posta zaciąga się jako ilustracja na FB -->
+	<?php
+		if( get_field('zdjecie') ){
+			$image = get_field('zdjecie');
+			$url = $image['url'];
+			echo "<meta property=\"og:image\" content=$url>";
+			}
+		?> 
+
+	<?php
+		if( get_field('ikona') ){
+			$image = get_field('ikona');
+			$url = $image['url'];
+			echo "<meta property=\"og:image\" content=$url>";
+			}
+		?> 
+
+
+	<?php 
+    
+		if( have_rows('lista_modulow') ):
+
+    			while( have_rows('lista_modulow') ) : the_row();
+		
+			$layout = get_row_layout();
+		
+			if( $layout === 'obrazek' ) {
+			
+				$image = get_sub_field('zdjecie');
+				$url = $image['url'];
+				echo "<meta property=\"og:image\" content=$url>";
+			}
+
+   		 endwhile;
+
+		endif;
+
+	?>
+	
+	
     <?php wp_head(); ?>
 
 </head>
