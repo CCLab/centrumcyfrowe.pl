@@ -59,7 +59,7 @@
                         <hr>
 
                         <h3 class="with-subtext">Teksty <?php the_field('odmiana-imienia') ?></h3>
-                        <p>Aktualności, artykuły, opinie, materiały.</p>
+                        <p>Aktualności, opinie, stanowiska, publikacje.</p>
 
                     </div>
 
