@@ -28,28 +28,32 @@
     <script type="text/javascript">
         var template_dir = "<?php echo get_template_directory_uri() ?>";
     </script>
-    
-	<!-- zdjÄ™cie z posta zaciÄ…ga siÄ™ jako ilustracja na FB -->
-	<?php
+
+
+
+
+	<!-- zdjêcie z posta zaci¹ga siê jako ilustracja na FB -->
+	
+
+<?php
 		if( get_field('zdjecie') ){
 			$image = get_field('zdjecie');
 			$url = $image['url'];
 			echo "<meta property=\"og:image\" content=$url>";
 			}
-		?> 
+		 
 
-	<?php
-		if( get_field('ikona') ){
+	
+		elseif ( get_field('ikona') ){
 			$image = get_field('ikona');
 			$url = $image['url'];
 			echo "<meta property=\"og:image\" content=$url>";
 			}
-		?> 
+		 
 
 
-	<?php 
-    
-		if( have_rows('lista_modulow') ):
+	
+		elseif( have_rows('lista_modulow') ){
 
     			while( have_rows('lista_modulow') ) : the_row();
 		
@@ -64,11 +68,14 @@
 
    		 endwhile;
 
-		endif;
-
+		}
+		else {
+			echo "<meta property=\"og:image\" content='https://centrumcyfrowe.pl/wp-content/uploads/sites/16/2018/06/obserwujacy-ryby-e1529703309678.jpg'>";
+		}
 	?>
+
 	
-	
+
     <?php wp_head(); ?>
 
 </head>
