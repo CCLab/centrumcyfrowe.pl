@@ -1,3 +1,5 @@
+
+
 <?php
 
 @ini_set( 'upload_max_size' , '64M' );
@@ -92,7 +94,7 @@ if( function_exists('acf_add_options_page') ) {
 	acf_add_options_page();
 
 	foreach (['pl', 'en'] as $lang) {
-	
+
 		acf_add_options_sub_page([
 			'page_title' => "Opcje: ". $lang,
 			'menu_title' => __("Opcje: " . $lang, 'textdomain'),
@@ -100,7 +102,7 @@ if( function_exists('acf_add_options_page') ) {
 			'post_id' => $lang,
 			// 'parent' => 'parent-slug'
 		]);
-	
+
 	}
 }
 
@@ -115,9 +117,9 @@ add_filter('upload_mimes', 'cc_mime_types');
 function fix_svg_thumb_display()
 {
 	echo '<style>
-    td.media-icon img[src$=".svg"], img[src$=".svg"].attachment-post-thumbnail { 
-      width: 100% !important; 
-      height: auto !important; 
+    td.media-icon img[src$=".svg"], img[src$=".svg"].attachment-post-thumbnail {
+      width: 100% !important;
+      height: auto !important;
     }
   </style>';
 }
@@ -170,12 +172,12 @@ function disable_comment_form_fields($fields)
 }
 add_filter('comment_form_default_fields', 'disable_comment_form_fields');
 
-//REMOWE "POSTS" FORM ADMIN MENU (DASHBOARD)
+//REMOVE "POSTS" FROM ADMIN MENU (DASHBOARD)
 
 function remove_menus(){
-  
-  remove_menu_page( 'edit.php' );                 
-   
+
+  remove_menu_page( 'edit.php' );
+
 }
 add_action( 'admin_menu', 'remove_menus' );
 
@@ -266,9 +268,78 @@ function cc_tooltip($image){
 	<?php
 }
 
-// Wpisy w czytelni muszą mieć kategorie.
+
+function is_tooltip_enabled_en($image){
+	if(get_field('licencja', $image['ID']) && get_field('licencja', $image['ID']) !== 'none'){
+		return true;
+	}
+
+	return false;
+}
+
+
+
+function cc_tooltip_en($image){
+	?>
+	<div class="tooltip-container">
+        <div class="tooltip-images" tabindex="0">
+            <div class="label">
+
+                <?php if(get_field('image-url', $image['ID']) && $image['title'] ){ ?>
+                    <a href="<?php the_field('image-url', $image['ID']) ?>" target="_blank">
+	                    <?php if ($image['title']){?>
+                            Title: <?php echo $image['title'] ?>
+	                    <?php } ?>
+                    </a>
+                    <br>
+                <?php }else if($image['title']){ ?>
+                    Title: <?php echo $image['title'] ?>
+                    <br>
+                <?php }
+
+                    $printLicense = false;
+                    $license = get_field( 'licencja', $image['ID'] );
+                    $licenseImg = get_template_directory_uri() . '/';
+                    $licenseUrl = "";
+
+                    if($license && $license !== 'none') {
+                        $printLicense = true;
+	                    if ( $license === 'ccby' ) {
+		                    $licenseImg .= '/dist/images/licenses/cc-by.png';
+	                    } else if ( $license === 'ccbysa' ) {
+		                    $licenseImg .= '/dist/images/licenses/cc-by-sa.png';
+	                    } else if ( $license === 'cczero' ) {
+		                    $licenseImg .= '/dist/images/licenses/cc-zero.png';
+	                    } else if ( $license === 'public' ) {
+		                    $licenseImg .= '/dist/images/licenses/cc-public-domain.png';
+	                    }
+
+	                    $licenseUrl = get_field('wersja_licencji_' . $license, $image['ID']);
+                    }
+
+                if($printLicense){ ?>
+                    <a href="<?php echo $licenseUrl ?>" target="_blank">
+		                <img src="<?php echo $licenseImg ?>" alt="<?php echo get_field('licencja', $image['ID']) ?>">
+                    </a>
+                    <br>
+	            <?php }
+
+	            if (get_field('autor', $image['ID'])){?>
+                    Author: <?php the_field('autor', $image['ID']) ?>
+                    <br>
+	            <?php } ?>
+            </div>
+
+        </div>
+    </div>
+	<?php
+}
+
+
+
 function custom_rpc_post_types( $post_types ) {
     $post_types['czytelnia'] = array('kategoria' => array('message' => 'Wybierz co najmniej jedną kategorię.'));
     return $post_types;
 }
 add_filter('rpc_post_types', 'custom_rpc_post_types');
+
