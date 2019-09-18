@@ -30,10 +30,21 @@ get_header(); ?>
                 <span></span>
                 <div class="tooltip-container">
                     <div class="tooltip-images" tabindex="0">
-                        <div class="label">
-                            Nie mamy nic do ukrycia!<br>
-                            Popatrz na nasz kod.
-                        </div>
+			<div class="label">
+                        	<?php
+					$currentLanguage  = pll_current_language();
+
+						if ( $currentLanguage == "en" ) {
+
+							echo "We have nothing to hide!" . "<br>" . "Check out our code.";
+										}
+
+							else { 
+    
+							echo "Nie mamy nic do ukrycia!" . "<br>" . "Zobacz nasz kod.";
+										}
+				?>
+			</div>
                     </div>
                 </div>
             </div>
@@ -182,8 +193,18 @@ get_header(); ?>
                                         <a href="<?php the_permalink() ?>">
                                             <img src="<?php echo $image['sizes']['list-thumbnail'] ?>" alt="<?php echo $image['alt'] ?>">
                                         </a>
-
-                                        <?php cc_tooltip($image) ?>
+											
+                                        <?php 
+										$currentLanguage  = pll_current_language();
+										if ( $currentLanguage == "en" ) {
+											
+											cc_tooltip_en($image);
+											}
+										else {
+											cc_tooltip($image);
+											}
+										
+										?>
                                     </div>
                                 </div>
                             </div>
@@ -264,8 +285,19 @@ get_header(); ?>
                                             <button class="button button-small orange"><?php echo get_field('tekst-na-przycisku') ?></button>
                                         </div>
                                     </a>
-
-                                    <?php cc_tooltip($obrazek) ?>
+									
+									 <?php 
+										$currentLanguage  = pll_current_language();
+										if ( $currentLanguage == "en" ) {
+											
+											cc_tooltip_en($obrazek);
+											}
+										else {
+											cc_tooltip($obrazek);
+											}
+										
+										?>
+									
 
                                 </div>
                                 <?php
@@ -281,7 +313,7 @@ get_header(); ?>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <a href="<?php the_field('projekty-przycisk-odnoÅ›nik') ?>?filtr=wyroznione" class="button orange"><?php the_field('projekty-przycisk-tekst') ?></a>
+                        <a href="<?php the_field('projekty-przycisk-odnoœnik') ?>?filtr=wyroznione" class="button orange"><?php the_field('projekty-przycisk-tekst') ?></a>
                     </div>
                 </div> <!-- </.row> -->
             </div>
