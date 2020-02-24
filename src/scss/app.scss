@@ -812,6 +812,66 @@ html {
 	}
 }
 
+/* custom styling for spoltech landing page */
+
+.landing-page-header-spoltech {
+	height:calc(100vh - 92px);
+	color:#fff;
+	background:url("../images/landing-page-header-image.jpg") no-repeat;
+	background-size:contain;
+	background-position:center;
+	background-color: #70C1EC;
+	}
+
+@media only screen and (max-width: 991px) {
+
+     .landing-page-header-spoltech {
+		
+	background:url("../images/landing-page-header-image-mobile.jpg") no-repeat;
+	background-size:cover;
+	background-position:center;
+	
+	}
+
+}
+
+.header .content-box h1 {
+	font-size: 45px !important;
+	text-align: center;
+	padding: 160px 0;
+
+}
+
+.row-bio {
+	margin-bottom: 20px !important;
+}
+
+
+img.bio-foto {
+	margin-bottom: 20px;
+}
+
+img.spoltech-cover {
+	margin-bottom: 20px;
+}
+
+
+.display_archive {
+	font-size: 18px;
+	}
+
+
+.campaign {
+	font-size: 18px;
+	}
+
+.campaign a:link {
+	color: #ff5722;
+	}
+
+/* END custom styling for spoltech landing page */
+
+
 /* custom styling for spoled landing page */
      img.spoled {
        width: 180px;
@@ -841,7 +901,6 @@ html {
 	
     } 
 
-
     @media only screen and (min-width: 992px) and (max-width: 1199px) {
      img.spoled {
        width: 150px;
@@ -853,3 +912,5 @@ html {
 	}
 
      }
+	
+/* END custom styling for spoled landing page */
