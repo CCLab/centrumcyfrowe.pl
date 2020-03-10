@@ -85,7 +85,7 @@ get_header(); ?>
                             ?>
                             <?php if (get_field('obszar-dzialan-pokaz-na-glownej')): ?>
                             <a href="<?php the_permalink(); ?>">
-                                <div class="col-md-3 col-sm-6 col-xs-12 area-block">
+                                <div class="col-md-4 col-sm-6 col-xs-12 area-block">
                                     <?php $icon = get_field('obszar-dzialan-ikona');
                                     if ($icon['mime_type'] === "image/svg+xml"): ?>
                                     <?php getSvg($icon['url']); ?>

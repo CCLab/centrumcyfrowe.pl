@@ -47,7 +47,7 @@
 
 						?>
 						<a href="<?php the_permalink(); ?>">
-							<div class="col-md-3 col-sm-6 col-xs-12 area-block <?php 
+							<div class="col-md-4 col-sm-6 col-xs-12 area-block <?php 
 								if($counter%3 === 0) {
 									echo "col-md-offset-2 col-sm-offset-0 col-xs-offset-0";
 									$counter = 3;

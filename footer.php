@@ -103,7 +103,7 @@
                 </div>
             </div>
 
-            <div class="col-md-2 col-sm-6 col-xs-12 col-md-offset-0 col-sm-offset-6 partner-box">
+            <div class="col-md-3 col-sm-6 col-xs-12 col-md-offset-0 col-sm-offset-6 partner-box">
                 <h5><?php the_field('footer-nalezymy-do-naglowek', pll_current_language('slug')) ?></h5>
 
                 <div class="swiper-container swiper-footer-logos">

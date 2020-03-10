@@ -13,11 +13,18 @@
 		<?php the_sub_field('tresc_kolumny') ?>
 	</div>
 
+
+
 	<?php if(have_rows('przypisy')): ?>
 	<div class="col-md-2">
 		<?php while (have_rows('przypisy')) : the_row(); ?>
 			<div class="margin-note">
-					<?php the_sub_field('tresc_przypisu') ?>
+					
+					<?php $field = get_sub_field('tresc_przypisu');
+					$formatted_field = strip_tags($field, '<br>, <a>, <strong>');
+					echo $formatted_field; ?>
+
+					<!-- <?php the_sub_field('tresc_przypisu') ?> -->
 			</div>
 		<?php endwhile; ?>
 	</div>
