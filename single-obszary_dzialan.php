@@ -25,6 +25,55 @@
 				</div>
 			</div>
 
+
+
+
+                        <div class="row team-small">
+                                <div class="col-md-8 col-sm-12 col-xs-12 col-md-offset-2 col-sm-offset-0 col-xs-offset-0">
+                                        <h3><?php the_field('zespol-naglowek') ?></h3>
+                                </div>
+                <div class="col-md-12">
+                    <div class="row">
+
+                        <?php
+                            $osoby = get_field('zespol-osoba');
+                            foreach ($osoby as $key => $osoba ):
+                        ?>
+
+                            <?php if($key%2 === 0){ ?>
+                                </div><div class="row">
+                            <?php } ?>
+
+                            <div class="col-md-4 col-sm-6 col-xs-12 <?php if($key%2 === 0): ?>col-md-offset-2 col-sm-offset-0 col-xs-offset-0<?php endif;?> team-member <?php if ($key >= 2) : ?>padding-12<?php endif; ?>">
+                                <a href="<?php echo $osoba->guid ?>">
+                                    <div class="team-member-image">
+                                        <?php if(get_field('zdjecie', $osoba->ID)){ ?>
+                                            <img src="<?php
+                                                    $obrazek = get_field('zdjecie', $osoba->ID);
+                                                    echo $obrazek['url'] ?>" alt="<?php echo $osoba->post_title . ' - zdjęcie'
+                                                ?>">
+                                        <?php } ?>
+                                    </div>
+
+                                    <div class="team-member-description">
+
+                                        <span class="team-member-name"><?php echo $osoba->post_title; ?></span>
+                                        <span class="team-member-occupation"><?php the_field('stanowisko', $osoba->ID) ?></span>
+
+                                    </div>
+                                </a>
+                            </div>
+                                        <?php endforeach; ?>
+                    </div>
+                </div>
+                        </div>
+
+
+
+
+
+
+
 			<?php
 				include(locate_template("modules-includer.php"));
 			?>
@@ -69,7 +118,11 @@
 
         </div>
 
+<?php /* ?>
+
 		<div class="container">
+
+
 
 			<div class="row">
 				<div class="col-md-8 col-sm-12 col-xs-12 col-md-offset-2 col-sm-offset-0 col-xs-offset-0">
@@ -78,7 +131,6 @@
 
 				</div>
 			</div>
-
 			<div class="row team-small">
 				<div class="col-md-8 col-sm-12 col-xs-12 col-md-offset-2 col-sm-offset-0 col-xs-offset-0">
 					<h3><?php the_field('zespol-naglowek') ?></h3>
@@ -118,7 +170,9 @@
                     </div>
                 </div>
 			</div>
+
 		</div>
+<?php */ ?>
 
 	</main>
 
