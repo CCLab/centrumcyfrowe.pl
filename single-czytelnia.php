@@ -74,10 +74,16 @@
 					<h5 class="title">Data</h5>
 					<span><?php echo get_the_date('d M Y') ?></span>
 
-                    <h5 class="title" style="margin-top: 10px;">Powiązane obszary</h5>
+                    <h5 class="title" style="margin-top: 20px;">Powiązane obszary</h5>
 					<?php foreach (get_field('powiazane_obszary') as $area){?>
                         <a href="<?php echo the_permalink($area->ID) ?>"><?php echo $area->post_title; ?></a>
 					<?php } ?>
+			<h5 class="title" style="margin-top: 20px;">Powiązane projekty</h5>
+			<?php foreach (get_field('powiazane_projekty') as $area){?>
+                        <a href="<?php echo the_permalink($area->ID) ?>"><?php echo $area->post_title; ?></a>
+					<?php } ?>
+	
+				
 				</div>
 				
 
@@ -108,6 +114,7 @@
 			<div class="row">
 				<div class="col-md-offset-2 col-sm-offset-2 col-xs-offset-0 col-md-8 col-sm-8 col-xs-12">
 					<?php comments_template() ?>
+                    <div style="margin-top: -40px;">Komentarz zostanie dodany po zatwierdzeniu przez administratora</div>
 				</div>
 			</div>
 
