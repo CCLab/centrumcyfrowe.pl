@@ -1,0 +1,1 @@
+<?php cc_tooltip($image) ?>

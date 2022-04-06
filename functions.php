@@ -156,7 +156,10 @@ function wpse_embed_oembed_html($cache, $url, $attr, $post_ID)
 add_action('after_setup_theme', 'register_my_menu');
 function register_my_menu()
 {
-	register_nav_menu('primary', __('Primary Menu', 'wp-bootstrap-gulp'));
+	register_nav_menus ( array(
+		'primary'=> __('Primary Menu', 'wp-bootstrap-gulp'),
+		'landing-page-spoltech-raport'=> __('Raport Społ-Tech Menu', 'wp-bootstrap-gulp'),
+	) );
 }
 
 //ENABLE COMMENTS FOR CUSTOM POST TYPES

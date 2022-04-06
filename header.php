@@ -28,8 +28,7 @@
     <script type="text/javascript">
         var template_dir = "<?php echo get_template_directory_uri() ?>";
     </script>
-
-
+	
 
 
 	<!-- zdjêcie z posta zaci¹ga siê jako ilustracja na FB -->
@@ -123,14 +122,21 @@
     <nav class="nav <?php echo $cookiesVisible ? 'cookies-visible' : '' ?> navbar-fixed-top collapsed">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 col-sm-3 col-xs-5">
-                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo-link">
-                        <div class="logo">
-	                        <?php getLogoImage() ?>
-                        </div>
-                        <span class="logo-text">CENTRUM CYFROWE</span>
-                    </a>
-                </div>
+                <div class="col-md-4 col-sm-3 col-xs-5 logo-centrum-spoltech">
+                 <?php
+			if ( pll_current_language() == "pl" ) { 
+				echo '<a href="https://centrumcyfrowe.pl/" class="logo-link">
+                        		<div class="logo">'; 
+						getLogoImage(); 
+					echo'</div>
+                        			<span class="logo-text">CENTRUM CYFROWE</span> </a>'; }
+ 				else { 
+				echo '<a href="https://centrumcyfrowe.pl/en/homepage/" class="logo-link">
+                        		<div class="logo">';
+	                        		getLogoImage();
+                        		echo '</div>
+                        			<span class="logo-text">CENTRUM CYFROWE</span> </a>';} ?>
+              	</div>
                 <div class="col-md-8 col-sm-8 col-xs-7 only-mobile">
                     <div class="hamburger hamburger--spring js-hamburger menu-trigger">
                         <div class="hamburger-box">
@@ -143,8 +149,32 @@
                     <div class="search-icon">
                         <i id="main-menu-search" class="fa fa-search search_off"></i>
                     </div>
-                    <form action="/" method="get" id="search-form">
-                        <input type="text" name="s" placeholder="Szukaj" id="main-nav-input" class="hidden">
+                    <form action="<?php
+					$currentLanguage  = pll_current_language();
+
+						if ( $currentLanguage == "en" ) {
+
+							echo "/en/";
+										}
+
+							else { 
+    
+							echo "/";
+										}
+				?>" method="get" id="search-form">
+                        <input type="text" name="s" placeholder="<?php
+					$currentLanguage  = pll_current_language();
+
+						if ( $currentLanguage == "en" ) {
+
+							echo "Search";
+										}
+
+							else { 
+    
+							echo "Szukaj";
+										}
+				?>" id="main-nav-input" class="hidden">
                     </form>
                     <div class="separator"><div></div></div>
                     <?php

@@ -84,11 +84,19 @@ function get_projects() {
                         ?>">
                             <?php
                             if(get_field('status-projektu') === "0")
-                                echo "PROJEKT TRWA";
+                		if( pll_current_language() == "pl" ) 	                
+					echo "PROJEKT TRWA";
+				else 
+
+					echo "CURRENT PROJECT";
+						
                             else if(get_field('status-projektu') === "1")
+				if( pll_current_language() == "pl" )
                                 echo "PROJEKT ZAKOŃCZONY";
-                            ?>
-                        </span>
+				else 
+
+					echo "PROJECT COMPLETED";
+                            ?>                        </span>
 
                         <div class="row">
 
@@ -113,7 +121,16 @@ function get_projects() {
                                         echo $image['sizes']['list-thumbnail'] . ' ' . $image['sizes']['list-thumbnail-width'] . 'w ';
                                     ?>" sizes="(min-width: 768px) 353px, calc(100% - 60px)">
 
-	                                <?php cc_tooltip($image) ?>
+	                                <?php $currentLanguage  = pll_current_language();
+										if ( $currentLanguage == "en" ) {
+											
+											cc_tooltip_en($image);
+											}
+										else {
+											cc_tooltip($image);
+											}
+										
+					?>
                                 </div>
                             </div>
 

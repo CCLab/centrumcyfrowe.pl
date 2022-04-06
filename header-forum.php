@@ -24,46 +24,14 @@
 
     <!-- font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700&amp;subset=latin-ext" rel="stylesheet">
+  	
 
     <script type="text/javascript">
         var template_dir = "<?php echo get_template_directory_uri() ?>";
-    </script>	
+    </script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-<style>
-.dodatkowy-logotyp {
-line-height: 92px;
-margin-left: 30px;
-}
-.dodatkowy-logotyp img {
-  height: 40px;
-}
-
-.remote-green {
-background: #00836a;
-color: white !important;
-border-color: #00836a;
-}
-.remote-green:hover {
-background: white;
-color: #00836a !important;
-}
-
-.button-inline {
-  display: inline-block;
-  width: 220px;
-  margin-right: 20px;
-}
-
-.image-container {
-	margin-top: 20px;
-}
-
-.image-medium {
-	margin-bottom: 0px;
-}
-
-</style>
 
 	<!-- zdjêcie z posta zaci¹ga siê jako ilustracja na FB -->
 	
@@ -153,65 +121,47 @@ color: #00836a !important;
         </div>
     <?php } ?>
 
-<nav class="nav <?php echo $cookiesVisible ? 'cookies-visible' : '' ?> navbar-fixed-top">
+    <nav class="nav <?php echo $cookiesVisible ? 'cookies-visible' : '' ?> navbar-fixed-top collapsed">
         <div class="container">
             <div class="row">
-		<div class="col-md-2 col-sm-2 col-xs-5 logo">
-                   
-                    <div>
-			<a href="<?php $t=get_field('link_logotypu'); echo $t ? $t : "https://centrumcyfrowe.pl/spoled/"; ?>" target="_blank"><img class="img-responsive logo-spoltech" <?php print_image(get_field('logotyp')) ?></a>    
-                    </div>
-    
-                </div>
-                
-                <div class="col-md-5 col-sm-2 col-xs-2 logo-centrum-spoltech landing-page-nav">
-                    <a href="<?php echo esc_url(home_url('/')); ?>">
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="47" height="42" viewBox="0 0 47 42">
-                                <g fill="none" fill-rule="evenodd">
-                                    <path fill="#FF5722" d="M23.722 24.693a4.605 4.605 0 0 1-3.195 1.294c-2.567 0-4.655-2.113-4.655-4.71s2.088-4.71 4.655-4.71c1.237 0 2.36.494 3.194 1.293l3.59-3.631a9.638 9.638 0 0 0-6.784-2.797c-5.365 0-9.73 4.417-9.73 9.845 0 5.428 4.365 9.845 9.73 9.845a9.637 9.637 0 0 0 6.784-2.798l-3.589-3.631z"/>
-                                    <path fill="#2A2A2A" d="M40.218 3.216l-3.59 3.625c7.026 8.05 7.026 20.2 0 28.248l3.59 3.626c8.995-10.053 8.994-25.445 0-35.499zM32.39 30.811c4.712-5.678 4.712-14.012 0-19.691l-3.602 3.637c2.766 3.652 2.766 8.766 0 12.417l3.602 3.637zm-.64-21.13l3.579-3.614C31.578 2.327 26.429.013 20.754.013 9.31.013 0 9.413 0 20.966c0 11.553 9.31 20.953 20.754 20.953 5.675 0 10.824-2.314 14.575-6.055l-3.58-3.614c-2.833 2.815-6.716 4.556-10.995 4.556-8.651 0-15.69-7.106-15.69-15.84s7.039-15.84 15.69-15.84c4.279 0 8.161 1.74 10.994 4.555z"/>
-                                </g>
-                            </svg>
-			    <span class="light hidden-xs"><?php $t = get_field('napis_przy_logo_cc'); echo $t ? $t : "Projekt Centrum Cyfrowego"; ?></span>
+                <div class="col-md-4 col-sm-3 col-xs-5 logo-centrum-spoltech">
+                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo-link">
+                        <div class="logo">
+	                        <?php getLogoImage() ?>
                         </div>
-		    </a>
-
-
-<?php
-    $dodatkowy_logotyp = get_field('dodatkowy_logotyp');
-    if ($dodatkowy_logotyp) {
-            ?><a href="<?php echo get_field('link_dodatkowego_logotypu'); ?>" class='dodatkowy-logotyp'><?php echo  print_image($dodatkowy_logotyp);  ?></a><?php
-    }
-?>
-
-
-
+                        <span class="logo-text">CENTRUM CYFROWE</span>
+                    </a>
                 </div>
-
-
-
-                <div class="col-md-5 col-sm-4 col-xs-1">
+                <div class="col-md-8 col-sm-8 col-xs-7 only-mobile">
+                    <div class="hamburger hamburger--spring js-hamburger menu-trigger">
+                        <div class="hamburger-box">
+                            <div class="hamburger-inner"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 col-sm-9 col-xs-7">
                     
-<?php
-$tol = get_field('tekst_obok_logotypu');
-if ($tol) {
-  $ltol = get_field('link_tekstu_obok_logotypu');
-  $tol_mobi = get_field('tekst_obok_logotypu_skrocony') || $tol;
-} else {
-  $tol = "Edukacja zdalna w czasie pandemii. Edycja I";
-  $tol_mobi = "Edycja I";
-  $ltol = "https://centrumcyfrowe.pl/edukacja-zdalna/";
-}
-  if ($ltol) { ?><a href="<?php echo $ltol; ?>" target="_blank"><?php }
-  ?><p class="badanie-pierwsza-edycja"><?php echo $tol; ?> </p> <p class="badanie-pierwsza-edycja-mobile"><?php echo $tol_mobi; ?> </p><?php
-  if ($ltol) { ?></a><?php }
-?>
-			                    
+                    <div class="search-icon">
+                        <i id="main-menu-search" class="fa fa-search search_off"></i>
+                    </div>
+                    <form action="/" method="get" id="search-form">
+                        <input type="text" name="s" placeholder="Szukaj" id="main-nav-input" class="hidden">
+                    </form>
+                    <div class="separator"><div></div></div>
+                    <?php
+                        wp_nav_menu( array(
+                            'menu'           => 'Main Menu',
+                            'theme_location' => 'primary',
+                            'depth'          => 2,
+                            'container'      => 'div',
+                            // 'container_class'=> 'hidden',
+                            'container_id'   => 'main-menu',
+                            'fallback_cb'    => 'WP_Bootstrap_Navwalker::fallback',
+                            'walker'         => new WP_Bootstrap_Navwalker()
+                        ) );
+				    ?>
                 </div>
             </div>
         </div>
     </nav>
     <!-- </nav> -->
-
-    

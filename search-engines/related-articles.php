@@ -13,10 +13,15 @@ function get_related_posts($custom_key) {
 	//if $custom_key parameter is not passed, this is AJAX call
 	if(empty($custom_key)){
 		$custom_key = $_POST['querykey'];
-		$offset = 1;
+		$offset = 4;
 		$posts_per_page = 20;
 		$isAjax = true;
 	};
+
+	$keyvalue = get_the_ID();
+	if($_POST['queryvalue']){
+		$keyvalue = $_POST['queryvalue'];
+    }
 
 	$artykuly = new WP_Query(array(
 		'post_type' => array('czytelnia'),
@@ -26,7 +31,7 @@ function get_related_posts($custom_key) {
 		'meta_query' => array(
 			array(
 				'key' => $custom_key,
-				'value' => get_the_ID(),
+				'value' => $keyvalue,
 				'compare' => 'LIKE'
 			)
 		),
@@ -63,10 +68,10 @@ function get_related_posts($custom_key) {
 						<div class="col-md-5 col-sm-5 article-image <?php echo is_tooltip_enabled($image) ? 'tooltip-enabled' : '' ?>">
 							<div>
 								<a href="<?php the_permalink() ?>">
-									<img src="<?php echo $image['sizes']['list-thumbnail'] ?>" alt="<?php echo $image['alt'] ?>" srcset="<?php
+									<img src="<?php echo $image['sizes']['list-thumbnail'] ?>" srcset="<?php
 										echo $image['sizes']['medium_large'] . ' ' . $image['sizes']['medium_large-width'] . 'w, ';
 										echo $image['sizes']['list-thumbnail'] . ' ' . $image['sizes']['list-thumbnail-width'] . 'w ';
-									?>" sizes="(min-width: 768px) 353px, calc(100% - 60px)">
+									?>" sizes="(min-width: 768px) 353px, calc(100% - 60px)" alt="<?php echo $image['alt'] ?>">
 								</a>
 
 								<?php cc_tooltip($image) ?>

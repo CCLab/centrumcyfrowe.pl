@@ -32,16 +32,37 @@
             <div class="row filter-box" id="projects-filter-box">
                 <div class="col-md-12">
                     <ul class="filter-list">
-                        <li>Filtr</li>
+                        <?php
+                		if( pll_current_language() == "pl" ) 	                
+					echo '<li>Filtr</li>';
+				else 
+
+					echo '<li>Filter</li>';
+					
+                            ?>
                         <li class="bold dropdown">
                             <a class="filter-top" data-filterdefault="Obszary" href="#">
-                                <span>Obszary</span>
+                                <?php
+                		if( pll_current_language() == "pl" ) 	                
+					echo '<span>Obszary</span>';
+				else 
+
+					echo '<span>Themes</span>';
+					
+                            ?>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
                                     <path fill="none" fill-rule="evenodd" d="M1 7l5 4 5-4"/>
                                 </svg>
                             </a>
                             <ul class="submenu area-dropdown">
-                                <li><a href="#" data-value="-1">Wszystkie obszary</a></li>
+                                <?php
+                		if( pll_current_language() == "pl" ) 	                
+					echo '<li><a href="#" data-value="-1">Wszystkie obszary</a></li>';
+				else 
+
+					echo '<li><a href="#" data-value="-1">All themes</a></li>';
+					
+                            ?>
                                 <?php
                                     $areas = get_posts(array(
                                         'post_type' => 'obszary_dzialan',
@@ -55,25 +76,55 @@
                         </li>
                         <li class="bold dropdown">
                             <a class="filter-top" data-filterdefault="Status projektu" href="#">
-                                <span>Status projektu</span>
+                                <?php
+                		if( pll_current_language() == "pl" ) 	                
+					echo '<span>Status projektu</span>';
+				else 
+
+					echo '<span>Project status</span>';
+					
+                            ?>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
                                     <path fill="none" fill-rule="evenodd" d="M1 7l5 4 5-4"/>
                                 </svg>
                             </a>
-                            <ul class="submenu status-dropdown">
+                           <?php
+                		if( pll_current_language() == "pl" ) 	                
+					echo ' <ul class="submenu status-dropdown">
                                 <li><a href="#" data-value="-1">Wszystkie projekty</a></li>
                                 <li><a href="#" data-value="0">Trwające</a></li>
                                 <li><a href="#" data-value="1">Zakończone</a></li>
-                            </ul>
-                        </li>
-                        <li class="bold"><a href="#" class="starred"><i class="fa fa-star-o"></i> Wyróżnione</a></li>
+                            </ul>';
+				else 
+
+					echo ' <ul class="submenu status-dropdown">
+                                <li><a href="#" data-value="-1">All projects</a></li>
+                                <li><a href="#" data-value="0">Current</a></li>
+                                <li><a href="#" data-value="1">Completed</a></li>
+                            </ul>';
+					
+                            ?>                        </li>
+                        <?php
+                		if( pll_current_language() == "pl" ) 	                
+					echo '<li class="bold"><a href="#" class="starred"><i class="fa fa-star-o"></i> Wyróżnione</a></li>';
+				else 
+
+					echo '<li class="bold"><a href="#" class="starred"><i class="fa fa-star-o"></i> Highlighted</a></li>';
+					
+                            ?>
 
                     </ul>
 
                     <div class="search-box">
                         <div class="separator"><div></div></div>
-                        <input type="text" placeholder="Szukaj w Projektach" class="search-input" name="projekty-search">
-                        <a href="#" class="search-input-trigger"><i id="projects-search" class="fa fa-search"></i></a>
+                        <?php
+                		if( pll_current_language() == "pl" ) 	                
+					echo '<input type="text" placeholder="Szukaj w Projektach" class="search-input" name="projekty-search">';
+				else 
+
+					echo '<input type="text" placeholder="Search in Projects" class="search-input" name="projekty-search">';
+					
+                            ?>                        <a href="#" class="search-input-trigger"><i id="projects-search" class="fa fa-search"></i></a>
                     </div>
 
                 </div>

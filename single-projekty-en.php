@@ -1,5 +1,10 @@
 <?php
 
+	/*
+	* Template name: Projekt EN
+	* Template Post Type: projekty
+	*/
+
     get_header();
 ?>
 
@@ -10,8 +15,8 @@
 				<div class="col-md-offset-2 col-sm-offset-0 col-xs-offset-0 col-md-8 col-sm-12 col-xs-12">
 					
 					<ol class="breadcrumb">
-						<li><a href="<?php the_permalink(250) ?>">Projekty</a></li>
-                        <?php if(get_field('projekt_wyrozniony')): ?><li><a href="<?php echo get_permalink(250).'/#wyroznione'?>">Wyróżnione</a></li><?php endif; ?>
+						<li><a href="<?php the_permalink(28982) ?>">Projects</a></li>
+                        <?php if(get_field('projekt_wyrozniony')): ?><li><a href="<?php echo get_permalink(28982).'/#highlighted'?>">Highlighted</a></li><?php endif; ?>
 					</ol>
 
 				</div>
@@ -41,7 +46,7 @@
                                 if($osoby){
                                     ?>
                                 <p>
-                                    Zespół projektu:
+                                    Project team:
                                     <?php
                                     foreach ($osoby as $key=>$osoba) {
                                         echo '<a href="' . get_permalink($osoba->ID) . '">'.$osoba->post_title.'</a>';
@@ -53,7 +58,7 @@
 
                             <?php if(get_field('czas_trwania')){ ?>
                                 <p>
-                                    <?php echo get_field('czas_trwania_opis') ? get_field('czas_trwania_opis') : 'Czas trwania' ?>:
+                                    <?php echo get_field('czas_trwania_opis') ? get_field('czas_trwania_opis') : 'Duration' ?>:
                                     <?php the_field('czas_trwania') ?>
                                 </p>
                             <?php } ?>
@@ -61,7 +66,7 @@
                                 $obszary = get_field('obszary_dzialan');
                                 if($obszary){
                                     ?>
-                                <p>Obszary działań:
+                                <p>Themes:
                                     <?php
                                     foreach ($obszary as $key=>$obszar) {
                                         echo '<a href="' . get_permalink($obszar->ID) . '">'.$obszar->post_title.'</a>';
@@ -71,7 +76,7 @@
                             <?php } ?>
 
 							<?php if(get_field('odnosnik')){ ?>
-                                <p>Więcej: <a href="<?php the_field('odnosnik') ?>" target="_blank"> <?php the_field('odnosnik') ?> </a></p>
+                                <p>More: <a href="<?php the_field('odnosnik') ?>" target="_blank"> <?php the_field('odnosnik') ?> </a></p>
                             <?php } ?>
                             <?php 
                                 $lista_tagow = get_the_tags(get_the_ID());
@@ -135,7 +140,7 @@
                            data-showmore="Pokaż więcej"
                            data-showless="Zwiń"
                         >
-                            Pokaż więcej
+                            Show more
                         </a>
                         <div class="posts-loader">
                             <?php getLogoImage() ?>

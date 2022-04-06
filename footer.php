@@ -1,3 +1,5 @@
+<?php if (!get_field('ukryj_stopke')) { ?>
+
 <footer>
 
     <div class="container">
@@ -126,6 +128,8 @@
     </div>
 
 </footer>
+
+<?php } ?>
 
 
 <?php wp_footer(); ?>
