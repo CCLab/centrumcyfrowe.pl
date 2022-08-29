@@ -6,1019 +6,434 @@
 get_header('forum');
 ?>
 
-<style>
+<div class="page-container">
+	<div class="title-container">
+	       <div class="parent-container">	
+		<div class="h1-container">
+			<h1 class="h1-first-line"><?php the_field('tytul_wydarzenia_first_line')?></h1>
+			<h1 class="h1-second-line"><?php the_field('tytul_wydarzenia_second_line')?></h1>
+			<img class="main-img" src="<?php echo the_field('grafika_w_tle') ?>">
+		</div>
+	       </div>	
+		<div class="data-logo">
+		<?php the_field('data_i_miejsce')?>
+		<img class="img-responsive" src="<?php the_field('logo_forum_bez_napisu')?>" />
+		</div>
 
-.navbar-fixed-top {
-	display: none;
-}
-
-h1, h2, h3, h4, .landing-page-nav-container h5 {
-	font-family: Muli-Black;
-	font-weight: 400 !important;
-}
-
-
-h1 {
-	font-size: 70px;
-}
-
-
-h2 {
-	font-size: 60px;
-	margin-bottom: 25px;
-}
-
-
-h3 {
-	font-size: 35px;
-}
-
-
-h5 {
-	font-size: 20px;
-}
-
-p, li {
-	font-size: 20px;
-}
-
-.container-logo .row {
-	margin-left: 0;
-	margin-right: 0;
-}
-
-.img-logo-centrum {
-	max-height: 70px;
-	margin-left: 70px;
-	margin-bottom: 0px;
-}
-
-
-.title-container, .first-text-block, .about, .registration, .programme, .report-premiere, .report-speakers, .lightning-talks, .lt-speakers, .workshops, .previous-edition, .contact, .logos {
-	width: 98%;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.title-container {
-	background-image: url(<?php  echo the_field('main-image') ?>);
-	background-repeat: no-repeat;
-	background-size: 100%;
-	padding-bottom: 95px;
-}
-
-.white-title h1{
-	color: #FFFFFF;
-	padding-top: 100px;
-	padding-left: 120px;
-	padding-bottom: 30px;
-}
-sup {
-	color: #FFFFFF;
-}
-
-.white-title h3{
-	color: #F8C55C;
-	padding-left: 120px;
-	margin-bottom: 0px;
-}
-
-/* title block */
-
-@media only screen and (max-width: 1400px) {
-
-	.title-container {
-		padding-bottom: 80px;
-	}
-
-	.white-title h1 {
-		font-size: 60px;
-		padding-left: 100px;
-
-	}
-	.white-title h3{
-		font-size: 30px;
-		padding-left: 100px;
-	}
-
-}
-
-@media only screen and (max-width: 1241px) {
-	.title-container {
-		padding-bottom: 50px;
-	}
-
-	.white-title h1 {
-		font-size: 50px;
-		padding-left: 80px;
-		padding-top: 80px;
-
-	}
-	.white-title h3{
-		font-size: 25px;
-		padding-left: 80px;
-	}
-
-}
-
-@media only screen and (max-width: 1030px) {
-	.title-container {
-		padding-bottom: 30px;
-	}
-
-	.white-title h1 {
-		font-size: 40px;
-		padding-left: 80px;
-		padding-top: 60px;
-		margin-bottom: 0;
-
-	}
-	.white-title h3{
-		font-size: 20px;
-		padding-left: 80px;
-		margin-top: 0;
-	}
-}
-
-@media only screen and (max-width: 840px) {
-	.white-title h1 {
-		font-size: 35px;
-		padding-left: 60px;
-		padding-top: 30px;
-		padding-bottom: 20px;
-
-	}
-	.white-title h3{
-		font-size: 20px;
-		padding-left: 60px;
 		
-	}
-}
-
-@media only screen and (max-width: 768px) {
-	.img-logo-centrum {
-		max-width: 130%;
-		height: auto;
-	}
-	.title-container {
-		background-color: #213B87;
-		background-size: 101%;
-	}
-
-}
-
-@media only screen and (max-width: 640px) {
-	
-	.white-title h1 {
-		font-size: 30px;
-		padding-left: 40px;
-		padding-top: 20px;
-		padding-bottom: 10px;
-
-	}
-	.white-title h3{
-		font-size: 18px;
-		padding-left: 40px;
 		
-	}
-	body.cookies-visible {
-    		padding-top: 5px;
-	}
-	.img-logo-centrum {
-		margin-left: 0px;
-	}
-
-}
-
-@media only screen and (max-width: 530px) {
-	.white-title h1 {
-		font-size: 25px;
-		padding-left: 30px;
-		padding-top: 20px;
-		padding-bottom: 10px;
-
-	}
-	.white-title h3{
-		font-size: 16px;
-		padding-left: 30px;
-		
-	}
-}
-
-@media only screen and (max-width: 460px) {
-	.white-title h1 {
-		font-size: 20px;
-		padding-left: 25px;
-		padding-top: 15px;
-		padding-bottom: 10px;
-
-	}
-	.white-title h3{
-		font-size: 15px;
-		padding-left: 25px;
-		
-	}
-}
-
-@media only screen and (max-width: 380px) {
-	.white-title h1 {
-		font-size: 18px;
-		padding-left: 25px;
-		padding-top: 15px;
-		padding-bottom: 5px;
-
-	}
-	.white-title h3{
-		font-size: 14px;
-		padding-left: 25px;
-		
-	}
-}
-
-@media only screen and (max-width: 340px) {
-	.white-title h1 {
-		font-size: 16px;
-		padding-left: 20px;
-		padding-top: 10px;
-		padding-bottom: 0px;
-
-	}
-	.white-title h3{
-		font-size: 12px;
-		padding-left: 20px;
-	}
-}
-
-@media only screen and (min-width: 0px) {
-	sup {
-		display: inline;
-	}
-}
-
-
-.first-text-block, .about, .registration, .programme, .report-premiere, .report-speakers, .lightning-talks, .lt-speakers, .workshops, .previous-edition, .contact {
-	padding-left: 20%;
-	padding-right: 20%;
-}
-
-/* .first-block-background {
-	background-image: url(https://centrumcyfrowe.pl/wp-content/uploads/sites/16/2021/08/tlo_test.png);
-	background-size: 104%;
-	background-repeat: no-repeat;
-	background-position: 50% 130%;
-} */ 
-
-.first-text-block {
-	padding-top: 60px;
-	padding-bottom: 60px;
-}
-
-.first-text-block p {
-	font-family: Muli-Black;
-	color: #213B87;
-}
-
-.about {
-	font-family: Muli-SemiBold;
-	color: #FFFFFF;
-	background-color: #213B87;
-	padding-top: 20px;
-	padding-bottom: 60px;
-
-}
-
-
-.about br{
-	display: none;
-}
-
-ul li::marker {
-	color: #EC6631;
-}
-
-.orange-background {
-	background-color: #EC6631;
-	padding-top: 15px;
-	padding-bottom: 15px;
-	padding-left: 10px;
-	padding-right: 20px;
-}
-
-.registration {
-	color: #213B87;
-	padding-bottom: 50px;
-}
-.registration h2 {
-	padding-top: 30px;
-}
-
-.registration-link {
-	background-color: #213B87;
-	font-size: 25px;
-	font-family: Muli-Black;
-	padding-top: 20px;
-	padding-bottom: 20px;
-	padding-left: 20px;
-	padding-right: 20px;
-	margin-top: 30px;
-
-}
-
-.registration a {
-	color: #FFFFFF;
-}
-
-
-.registration-arrow {
-	color: #F8C55C;
-	float: right;
-	padding-top: 7px;
-}
-
-.notes-row {
-	margin-top: 50px;
-	margin-bottom: 20px;
-	display: flex;
-	display: -webkit-flex;
-  	flex-wrap: wrap;
-	margin-left: 0px;
-	margin-right: 0px;
+	</div> <!-- END "title-container" -->
 	
-}
-
-.note-column-1, .note-column-2 {
-	border: 1px solid #F8C55C;
-	width: calc(50% - 5px);
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-top: 40px;
-	padding-bottom: 10px;
-}
-
-.note-column-1 {
-	margin-right: 5px;
-}
-
-
-.note-column-2 {
-	margin-left: 5px;
-} 
-
-.note {
-	color: #F8C55C;
-	font-family: Muli-Black;
-	font-size: 40px;
-	transform: rotate(-90deg);
-	margin-top: 50px;
-}
-
-.registration-info {
-	margin-top: 15px;
-}
-
-.info-1 {
-	padding-left: 0px;
-	padding-top: 20px;
-}
-
-.info-2 {
-	color: #EC6631;
-	border: solid 1px #EC6631;
-	width: calc(50% - 5px);
-	margin-left: 5px;
-	padding-top: 50px;
-	padding-left: 30px;
-}
-
-.info-2 br {
-	display: none;
-}
-
-.programme {
-	color: #213B87;
-	padding-bottom: 50px;
-}
-
-.programme h4 {
-	margin-bottom: 10px;
-}
-
-.programme h4:nth-child(2) {
-	margin-top: 30px;
-}
-
-.programme p br {
-	display: none;
-}
-
-.report-premiere {
-	color: #213B87;
-	background-color: #F8C55C;
-	padding-top: 20px;
-	padding-bottom: 15px;
-}
-
-.report-premiere p{
-	font-family: Muli-Black;
-}
-
-
-.img-report-cover {
-	max-width: 230%;
-	transform: rotate(15deg);
-	margin-top: 45px;
-	margin-left: 50px;
-}
-
-@media only screen and (max-width: 1130px) {
-	.img-report-cover {
-		transform: rotate(0deg);
-		margin-left: 35px;
-	}
-}
-
-@media only screen and (max-width: 768px) {
-	.img-report-cover {
-		max-width: 70%;
-		width: 70%;
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-	}
-	
-	.h2-speakers {
-		margin-top: 50px;
-	}
-}
-
-
-.download-report {
-	color: #FFFFFF;
-	font-family: Muli-Black;
-}
-
-.download-report:visited, .download-report:hover {
-	color: #FFFFFF;
-}
-
-
-.report-link-text {
-	background-color: #EC6631;
-	text-align: center;
-	font-size: 15px;
-	letter-spacing: 3px;
-	margin-top: 60px;
-	margin-left: 55px;
-	padding-left: 35px;
-	padding-right: 35px;
-	padding-top: 7px;
-	padding-bottom: 7px;
-	position: absolute;
-}
-
-
-@media only screen and (max-width: 768px) {
-	.report-link-text {
-		margin-top: 40px;
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 30px;
-		width: calc(100% - 100px);
-		padding-top: 20px;
-		padding-bottom: 20px;
-		position: relative;
-		padding-left: 30px;
-		padding-right: 30px;
-	}
-
-}
-
-
-.report-premiere > .row > .col-sm-10 > h2 {
-	margin-top: 40px;
-}
-
-.report-premiere > .row > .col-sm-10 {
-	margin-bottom: 25px;
-}
-
-
-.h2-speakers {
-	margin-left: 15px;
-}
-
-.report-speakers {
-	background-color: #F8C55C;
-	padding-bottom: 30px;
-}
-
-.report-speakers > .row > .col-sm-3:nth-child(4n+1) {
-    clear: both;
-	margin-bottom: 40px;
-}
-
-.img-speaker-foto {
-	max-width: 85%;
-	border: 3px solid #9C79B3;
-	border-radius: 50%;
-}
-
-.speaker-name {
-	font-family: Muli-Black;
-	color: #213B87;
-	margin-top: 20px;
-	margin-bottom: 5px;
-}
-
-.speaker-country {
-	font-family: Muli-Black;
-	color: #213B87;
-	margin-top: 5px;
-	margin-bottom: 5px;
-	text-transform: uppercase;
-}
-
-.lightning-talks {
-	color: #213B87;
-	background-color: #DBC9E8;
-	padding-top: 15px;
-	padding-bottom: 25px;
-}
-
-.lightning-talks h2{
-	margin-top: 40px;	
-}
-
-
-.lightning-talks p {
-	font-family: Muli-Black;
-	margin-top: 40px;
-}
-
-.lt-speakers {
-	color: #213B87;
-	background-color: #DBC9E8;
-	padding-bottom: 25px
-}
-
-.lt-speakers > .row > .col-sm-3:nth-child(4n+1) {
-    clear: both;
-}
-
-.lt-speakers > .row > .col-sm-3 {
-	margin-bottom: 30px;
-}
-
-
-.lt-speaker-country {
-	color: #213B87;
-}
-
-.lt-speaker-name {
-	color: #213B87;
-}
-
-.workshops {
-	color: #213B87;
-	background-color: #F8C55C;
-	padding-bottom: 35px;
-	padding-top: 25px;
-
-}
-
-.workshops h2{
-	margin-bottom: 35px;
-}
-
-.workshops h4{
-	margin-top: 50px;
-	margin-bottom: 40px;
-}
-
-
-.previous-edition {
-	color: #FFFFFF;
-	background-color: #EC6631;
-	padding-bottom: 30px;
-	padding-top: 30px;
-
-}
-
-.contact {
-	color: #FFFFFF;
-	background-color: #213B87;
-	padding-bottom: 15px;
-	padding-top: 20px;
-}
-
-.contact p br {
-	display: none;
-}
-
-.logos {
-	padding-left: 12%;
-	padding-right: 12%;
-}
-
-
-.flex-container {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-evenly;
-  height: 130px;
-}
-
-.flex-item {
-  margin: auto;
-}
-
-.partner-logo {
-	max-width: 120px;
-}
-
-
-@media only screen and (max-width: 1241px) {
-	h2 {
-		font-size: 50px;
-	}
-	p, li {
-	font-size: 18px;
-	}
-
-}
-
-
-@media only screen and (max-width: 960px) {
-	.info-2 {
-		padding-left: 5px;
-		font-size: 16px;
-	}
-	.note-column-1 p, .note-column-2 p, .info-1 p, .info-2 p {
-		font-size: 16px;
-	}
-	.note {
-		font-size: 30px !important;
-	}
-}
-
-
-@media only screen and (max-width: 768px) {
-	h2 {
-		font-size: 30px;
-	}
-
-	h3 {
-		font-size: 26px;
-	}
-
-	h4 {
-		font-size: 22px;
-	}
-
-	.title-container, .first-text-block, .about, .registration, .programme, .report-premiere, .report-speakers, .lightning-talks, .lt-speakers, .workshops, .previous-edition, .contact, .logos {
-	width: 100%;
-	}
-
-	.first-text-block, .about, .registration, .programme, .report-premiere, .report-speakers, .lightning-talks, .lt-speakers, .workshops, .previous-edition, .contact {
-	padding-left: 10%;
-	padding-right: 10%;
-	}
-
-
-	.first-text-block {
-    		padding-top: 40px;
-    		padding-bottom: 40px;
-	}
-
-	.note-column-1, .note-column-2 {
-		width: 100%;
-		padding-top: 30px;
-	}
-
-	.note-column-1 {
-		margin-right: 0;
-		margin-bottom: 10px;
-	}
-
-	
-	.note-column-2 {
-		margin-left: 0;
-	}
-
-	.note-column-1 .row, .note-column-2 .row {
-		display: flex;
-	}
-	.note {
-		margin-top: 20px;
-	}
-	
-
-
-	.note-column-1 p, .note-column-2 p, .info-1 p, .info-2 p {
-		font-size: 18px;
-	}
-
-	.info-2 {
-		width: 100%;
-		padding-top: 20px;
-		padding-left: 10px;
-	}
-
-
-	.programme h2 {
-		margin-top: 0;
-	}
-
-	.report-speakers > .row > .col-sm-3:nth-child(4n+1) {
-        	margin-bottom: 0px;
-	}
-
-	.speaker-country {
-		margin-bottom: 40px;
-	}
-
-	.img-speaker-foto {
-		margin-left: auto;
-		margin-right: auto;
-	}
-	.speaker-name, .speaker-country, .lt-theme {
-		text-align: center;
-	}
-
-	.speaker-country {
-		margin-bottom: 40px;
-	}
-	.lt-speaker-country {
-		margin-bottom: 0px;
-	}
-
-	.lt-theme {
-		margin-bottom: 40px;
-	}
-	.logos {
-		padding-left: 0;
-		padding-right: 0;
-		margin-bottom: 50px;
-	}
-	.flex-container {
-		display: block;
-		width: 50%;
-		height: auto;
-		margin-left: auto;
-		margin-right: auto;
-
-	}
-	.partner-logo {
-		max-width: 100%;
-		height: auto
-		width: 100%;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: 30px;
-	}
-
-}
-
-@media only screen and (max-width: 576px) {
-	.first-text-block, .about, .registration, .programme, .report-premiere, .report-speakers, .lightning-talks, .lt-speakers, .workshops, .previous-edition, .contact {
-		padding-left: 5%;
-		padding-right: 5%;
-	}
-
-	.note-column-1 .col-sm-2, .note-column-2 .col-sm-2 {
-		padding-right: 0;
-		padding-left: 0;
-
-	}
-	.note-column-1 .col-sm-10, .note-column-2 .col-sm-10 {
-		padding-left: 0;
-	}
-	.note {
-		margin-top: 25px;
-	}
-
-
-	.img-speaker-foto {
-		border: 2px solid #9C79B3;
-	}
-}
-
-@media only screen and (max-width: 400px) {
-	.registration-link {
-		font-size: 22px;
-	}
-}
-
-@media only screen and (max-width: 393px) {
-	.info-2 p {
-		white-space: normal;
-		margin-bottom: 10px;
-	}
-}
-
-
-@media only screen and (max-width: 351px) {
-	.registration-link {
-		font-size: 20px;
-		padding-right: 10px;
-		padding-left: 10px;
-	}
-}
-
-@media only screen and (max-width: 297px) {
-	.registration-arrow {
-		display: none;
-	}
-	.registration-link {
-		font-size: 18px;
-		
-	}
-}
-
-
-</style>
-
-
-    <div class="landing-page-nav-container">
-        <div class="container-logo">
-            <div class="row">
-                                
-                <div class="col-sm-3 col-sm-4 col-xs-5">
-                    <a href="<?php echo esc_url(home_url('/')); ?>">
-                        <div>
-                           
-    			<img class="img-responsive img-logo-centrum" src="https://centrumcyfrowe.pl/wp-content/uploads/sites/16/2021/07/CC_logopoziom_RGB-scaled.jpg">
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-   <div class="page-container">
-
-	<div class="title-container white-title">
-		<?php the_field('event-title')?>
-		<?php the_field('event-date')?>
-	</div> <!-- END title-container> -->
-
-	<div class="first-block-background">
-	<div class="first-text-block">
-		<?php the_field('first-text-block')?>
-	</div> <!-- END first-text-block> -->
-	</div> <!-- END first-block-background> -->
-
-	<div class="about">
-		<?php the_field('about')?>
-	</div> <!-- END about> -->
-
-	<div class="registration">
-		<?php the_field('registration')?>
-		<a target="_blank" href="<?php the_field('registration-link')?>"><p class="registration-link"><?php the_field('registration-button')?><i class="fa fa-caret-right registration-arrow"></i></p></a>
-	<div class="row notes-row">
-	<div class="col-sm-6 note-column-1">
-	<div class="row">
-	<div class="col-sm-2">
-		<p class="note">Note</p>
-	</div>
-	<div class="col-sm-10">
-		<?php the_field('note-1')?>
-	</div>
-	</div>
-	</div>
-	<div class="col-sm-6 note-column-2">
-	<div class="row">
-	<div class="col-sm-2">
-		<p class="note">Note</p>
-	</div>
-	<div class="col-sm-10">
-		<?php the_field('note-2')?>
-	</div>
-	</div>
-	</div>
-	</div> <!-- END notes-row -->
-	
-	<div class="row notes-row registration-info">
-	<div class="col-sm-6 info-1">
-		<?php the_field('registration-info')?>
-	</div>
-	<div class="col-sm-6 info-2">
-		<?php the_field('registration-contact')?>
-	</div>
-	</div> <!-- END registration-info -->
-	</div> <!-- END registrationt> -->
-
-	<div class="programme">
-		<?php the_field('programme')?>
-	</div> <!-- END programme -->
-	
-	<div class="report-premiere">
-	<div class="row">
-	<div class="col-sm-10">
-		<?php the_field('report-premiere')?>
-	</div>
-	 <div class="col-sm-2">
-		<img class="img-responsove img-report-cover" src="<?php the_field('report-cover')?>">
-		<a class="download-report" href="<?php the_field('report-button-link')?>"><p class="report-link-text"><?php the_field('report-button-text')?></p></a>
-	</div> 
-	 <h2 class="h2-speakers">Speakers</h2>
-	</div> <!-- END row -->
-	</div> <!-- END report-premiere -->
-
-	<div class="report-speakers">
-
-	
-		<div class="row"> 
+	<div class="short-desc-container main-column" id="<?php the_field('about_link')?>">
+		<?php the_field('krotki_opis_edycji')?>
+		<!-- <img class="obrazek-w-tle" src="<?php the_field('obrazek_w_tle')?>"> -->
+	</div> <!-- END "short-desc-container" -->
+
+	 <div class="registration main-column">
+			<h2 class="naglowek" id="<?php the_field('registration_link')?>"><?php the_field('registration_naglowek')?></h2>
+			<div class="row registration-info equal">
+			<div class="col-sm-4 col-xs-12">
+				<a class="button-blue" href="<?php the_field('link_do_przycisku')?>" target="_blank"><?php the_field('napis_na_przycisku')?></a>
+			</div>	
+			<div class="col-sm-8">
+				<?php the_field('rejestracja_daty')?>
+			</div>
+				
+			</div>
+				<img class="obrazek-w-tle" src="<?php the_field('obrazek_w_tle')?>">
+	</div> <!-- END "registration" -->
+
+
+	<div class="long-desc-container main-column">
+		<?php the_field('dluzszy_opis')?>
+		<div class="row ikony-z-opisami">
 			<?php	
-			if( have_rows('speakers') ):
-    			while ( have_rows('speakers') ) : the_row();
-			$speaker_foto = get_sub_field('speaker-foto');
-        		$speaker_name = get_sub_field('speaker-name');
-			$speaker_country = get_sub_field('speaker-country');
-        		echo "<div class='col-sm-3'> <img class='img-responsive img-speaker-foto' src='$speaker_foto'> <p class='speaker-name'> $speaker_name </p> <p class='speaker-country'> $speaker_country</p> </div>";
+			if( have_rows('ikony_z_opisami') ):
+    			while ( have_rows('ikony_z_opisami') ) : the_row();
+			$ikona = get_sub_field('ikona');
+        	$opis_ikony = get_sub_field('opis_ikony');
+		    echo "<div class='col-sm-3'> <img class='img-responsive icon' src='$ikona'> <p class='icon-text'> $opis_ikony</p></div>";
     			endwhile;
 			else :
     			// no rows found
 				endif;		
 			?>
-		</div> <!-- END row -->
-	</div> <!-- END report-speakers -->
-	
-	<div class="lightning-talks">
-		<?php the_field('lightning-talks')?>
+		</div> <!-- END "ikony-z-opisami" -->
 
-	</div> <!-- END lightning-talks -->
+	</div> <!-- END "long-desc-container" -->
 
-
-	<div class="lt-speakers">
-		<div class="row"> 
+	<div class="programme main-column">
+			<h2 class="naglowek" id="<?php the_field('program_link')?>"><?php the_field('naglowek')?></h2>
+			<div class="row equal hidden-xs">
+				<div class="col-sm-6 blue-date">
+					<p class="program-date"><?php the_field('dzien_pierwszy_data')?></p>
+					<p><?php the_field('dzien_pierwszy_dzien')?></p>
+				</div>
+				<div class="col-sm-6 blue-date">
+					<p class="program-date"><?php the_field('dzien_drugi_data')?></p>
+					<p><?php the_field('dzien_drugi_dzien')?></p>
+				</div>
+			</div>
 			<?php	
-			if( have_rows('lt-speakers') ):
-    			while ( have_rows('lt-speakers') ) : the_row();
-			$lt_speaker_foto = get_sub_field('lt-speaker-foto');
-        		$lt_speaker_name = get_sub_field('lt-speaker-name');
-			$lt_speaker_country = get_sub_field('lt-speaker-country');
-			$lt_theme = get_sub_field('lt-theme');
-        		echo "<div class='col-sm-3'> <img class='img-responsive img-speaker-foto' src='$lt_speaker_foto'> <p class='speaker-name lt-speaker-name'> $lt_speaker_name </p> <p class='speaker-country lt-speaker-country'> $lt_speaker_country</p> <p class='lt-theme'> $lt_theme</p> </div>";
+				if( have_rows('program_wiersze') ):
+    				while ( have_rows('program_wiersze') ) : the_row();
+					$wiersz_z_lewej_godzina = get_sub_field('wiersz_z_lewej_godzina');
+        				$wiersz_z_lewej_opis = get_sub_field('wiersz_z_lewej_opis');
+					$wiersz_z_prawej_godzina = get_sub_field('wiersz_z_prawej_godzina');
+					$wiersz_z_prawej_opis = get_sub_field('wiersz_z_prawej_opis');
+		   		 echo "<div class='row equal hidden-xs'>
+						<div class='col-sm-6'>
+							<hr class='hr-long'>
+							<p class='blue-time'>$wiersz_z_lewej_godzina</p>
+							$wiersz_z_lewej_opis
+						</div>
+						
+						<div class='col-sm-6'>
+							<hr class='hr-long'>
+							<p class='blue-time'>$wiersz_z_prawej_godzina</p>
+							$wiersz_z_prawej_opis
+						</div>
+						
+    			  			</div>";
+				endwhile;
+				else :
+    				// no rows found
+				endif;		
+				?>
+				
+			<!-- Programme only mobile -->
+
+				<div class="blue-date visible-xs">
+					<p class="program-date"><?php the_field('dzien_pierwszy_data')?></p>
+					<p><?php the_field('dzien_pierwszy_dzien')?></p>
+                		</div>
+                    <?php	
+				if( have_rows('program_wiersze') ):
+    				while ( have_rows('program_wiersze') ) : the_row();
+					$wiersz_z_lewej_godzina = get_sub_field('wiersz_z_lewej_godzina');
+        			$wiersz_z_lewej_opis = get_sub_field('wiersz_z_lewej_opis');
+		   		 echo "<div class='visible-xs'>
+						
+							<hr class='hr-long hr-programme'>
+							<p class='blue-time'>$wiersz_z_lewej_godzina</p>
+							$wiersz_z_lewej_opis
+											
+    			  			</div>";
+				endwhile;
+				else :
+    				// no rows found
+				endif;		
+				?>
+
+				<div class="blue-date visible-xs">
+					<p class="program-date"><?php the_field('dzien_drugi_data')?></p>
+					<p><?php the_field('dzien_drugi_dzien')?></p>
+               			 </div>
+                    <?php	
+				if( have_rows('program_wiersze') ):
+    				while ( have_rows('program_wiersze') ) : the_row();
+					$wiersz_z_prawej_godzina = get_sub_field('wiersz_z_prawej_godzina');
+        			$wiersz_z_prawej_opis = get_sub_field('wiersz_z_prawej_opis');
+		   		 echo "<div class='visible-xs'>
+						
+							<hr class='hr-long hr-programme'>
+							<p class='blue-time'>$wiersz_z_prawej_godzina</p>
+							$wiersz_z_prawej_opis
+						
+    			  			</div>";
+				endwhile;
+				else :
+    				// no rows found
+				endif;		
+				?>
+
+			<!-- END Programme only mobile -->
+			
+		<!--	<div class="program-info"><?php the_field('program_info')?></div> -->
+			<hr class='hr-programme'>
+	</div> <!-- END "programme" -->
+
+	<!-- <div class="registration main-column">
+			<h2 class="naglowek" id="<?php the_field('registration_link')?>"><?php the_field('registration_naglowek')?></h2>
+			<div class="row registration-info equal">
+			<div class="col-sm-4 col-xs-12">
+				<a class="button-blue" href="<?php the_field('link_do_przycisku')?>" target="_blank"><?php the_field('napis_na_przycisku')?></a>
+			</div>	
+			<div class="col-sm-8">
+				<?php the_field('rejestracja_daty')?>
+			</div>
+			</div>
+
+	</div> <!-- END "registration" --> 
+			
+	
+	<div class="participation main-column">
+			
+			<h2 class="naglowek"><?php the_field('participation_naglowek')?></h2>
+			
+			<?php	
+			if( have_rows('participation_type') ):
+    			while ( have_rows('participation_type') ) : the_row();
+			$particip_data = get_sub_field('participation_data');
+        		$type = get_sub_field('type');
+			$particip_deadline = get_sub_field('participation_deadline');
+			$particip_opis = get_sub_field('participation_opis');
+		    echo "<div class='particip-type-column'><div class='particip-data'>$particip_data</div><div class='particip-type'>$type</div><div class='particip-deadline'>$particip_deadline</div><div class='particip-opis'>$particip_opis</div></div><hr class='hr-long'>";
     			endwhile;
 			else :
     			// no rows found
 				endif;		
 			?>
-		</div> <!-- END row -->
-	</div> <!-- END lt-speakers -->
+		
+			</div> <!-- END "particip-type-column" -->
 
-	<div class="workshops">
-		<?php the_field('workshops')?>
+	</div> <!-- END "participation" -->
 
-	</div> <!-- END workshops -->
-	
-	<a target="_blank" href="<?php the_field('previous-edition-link')?>"><div class="previous-edition">
-		<h3><?php the_field('previous-edition-text')?></h3>
-
-	</div> <!-- END previous-edition --></a>
-
-	<div class="contact">
-		<?php the_field('contact')?>
-	</div> <!-- END contact -->
-
-	<div class="logos">
-		<div class="flex-container"> 
+	<div class="report main-column">
+			<h2 class="naglowek" id="<?php the_field('report_link')?>"><?php the_field('report_naglowek')?></h2>
+			<div class="row">
+				<div class="col-sm-3">
+					<img class="img-responsive okladka-raportu" src="<?php the_field('report_okladka')?>">
+				</div>
+				<div class="col-sm-9 opis-raportu">
+					<?php the_field('report_opis')?>
+					<a class="button-report" href="<?php the_field('link_do_przycisku_report')?>" target="_blank"><?php the_field('napis_na_przycisku_report')?></a>
+					</div>
+				</div>
+			<h4 class="report-speakers"><?php the_field('speakers_naglowek')?></h4>
+			<div class="row speakers-about">
 			<?php	
-			if( have_rows('partner-logos') ):
-    			while ( have_rows('partner-logos') ) : the_row();
-			$partner_logo = get_sub_field('partner-logo');
-        		echo "<div class='flex-item'> <img class='img-responsive partner-logo' src='$partner_logo'> </div>";
+			if( have_rows('speakers_osoby') ):
+    			while ( have_rows('speakers_osoby') ) : the_row();
+				$speaker_foto = get_sub_field('speaker_foto');
+				$speaker_name = get_sub_field('speaker_name');
+        		$speaker_affil = get_sub_field('speaker_affil');
+				$speaker_country = get_sub_field('speaker_country');
+		    echo "<div class='col-sm-6'>
+				  	<div class='row'>
+				  		<div class='col-sm-4'>
+				  			<img class='img-responsive speaker-foto' src='$speaker_foto'> 
+				  		</div>
+						  <div class='col-sm-8'>
+						  <p class='speaker-name'> $speaker_name </p> 
+						  <p class='speaker-affil'> $speaker_affil</p>
+						  <p class='speaker-country'> $speaker_country</p>
+					  	</div>
+				  	</div>
+				  </div>";
     			endwhile;
 			else :
     			// no rows found
 				endif;		
 			?>
-		</div> <!-- END flex-container -->
-	</div> <!-- END logos -->
 
-  </div> <!-- END page-container -->		
+			</div> <!-- END speakers-about -->
 
-<div class="content-nav">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-sm-12 hidden-xs">
-                <ul id="content-nav-ul">
-			<li><a href="#about">about</a></li>
-			<li><a href="#registration">registration</a></li>
-			<li><a href="#programme">programme</a></li>
-			<li><a href="#report">report premiere</a></li>
-			<li><a href="#talks">lightening talks</a></li>
-			<li><a href="#workshops">workshops</a></li>
+	</div> <!-- END "report" -->
+	
+	<div class="lt-talks main-column">
+			<h2 class="naglowek" id="<?php the_field('lttalks_link')?>"><?php the_field('lightning_talks_naglowek')?></h2>
+			<div class="row">
+				<div class="col-sm-8">
+					<h4 class="lt-opis"><?php the_field('lightning_talks_-_opis')?></h4>
+				</div>
+			</div>
 
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
+			<div class="row speakers-lt equal">
+			<?php	
+			if( have_rows('Lightning talks_osoby') ):
+    			while ( have_rows('Lightning talks_osoby') ) : the_row();
+				$lt_title = get_sub_field('lt_title');
+				$lightning_talks_foto = get_sub_field('lightning_talks_foto');
+        			$lightning_talks_name = get_sub_field('lightning_talks_name');
+				$lightning_talks_affil = get_sub_field('lightning_talks_affil');
+				$lightning_talks_country = get_sub_field('lightning_talks_country');
+		    echo "<div class='col-sm-6'>
+					<hr class='hr-long hr-short'>
+					<p class='speaker-name'>$lt_title</p>
+				  	<div class='row lt-speaker-info'>
+				  		<div class='col-sm-4'>
+				  			<img class='img-responsive speaker-foto' src='$lightning_talks_foto'>
+				  		</div>
+						  <div class='col-sm-8'>
+						  <p>$lightning_talks_name</p> 
+						  <p class='lt-affil'>$lightning_talks_affil</p>
+						  <p class='speaker-country'>$lightning_talks_country</p>
+					  	</div>
+				  	</div>
+				  </div>";
+    			endwhile;
+			else :
+    			// no rows found
+				endif;		
+			?>
+
+			</div> <!-- END speakers-lt -->
+
+	</div> <!-- END "lt-talks" -->
+
+	<div class="events main-column">
+			<div class="events-naglowek"><h2 class="naglowek" id="<?php the_field('events_link')?>"><?php the_field('events_naglowek')?></h2></div>
+				<?php	
+			if( have_rows('events_list') ):
+    			while ( have_rows('events_list') ) : the_row();
+				$l_p = get_sub_field('l_p');
+				$event_type = get_sub_field('event_type');
+        		$event_title = get_sub_field('event_title');
+				$event_description = get_sub_field('event_description');
+				$date_naglowek = get_sub_field('date_naglowek');
+				$date_tekst = get_sub_field('date_tekst');
+				$led_by_naglowek = get_sub_field('led_by_naglowek');
+				$led_by_tekst = get_sub_field('led_by_tekst');
+				$est_time_naglowek = get_sub_field('est_time_naglowek');
+				$est_time_tekst = get_sub_field('est_time_tekst');
+		    echo "<hr class='hr-long hr-short'>
+			<div class='row events-lista'>	
+				<div class='col-sm-3'>
+					<p class='l-p'>$l_p</p>
+				</div>	
+				<div class='col-sm-9 toggle-description'>
+				  	<p class='event-type speaker-country'>$event_type</p><button class='plus-button'><img class='plus-icon' src='https://centrumcyfrowe.pl/wp-content/uploads/sites/16/2022/06/plus-icon.svg'><img class='minus-icon' src='https://centrumcyfrowe.pl/wp-content/uploads/sites/16/2022/06/minus-icon.svg'></button>
+					<h4 class='lt-opis'>$event_title</h4>
+					<div class='more-text' style='display: none;'><p>$event_description</p>
+					<hr class='hr-long hr-short'>
+					<div class='row equal'>
+						<div class='col-sm-3'>
+							<p class='speaker-name'>$date_naglowek</p>
+						</div>
+						<div class='col-sm-9'>
+							<p>$date_tekst</p>
+						</div>
+					</div> 
+					<hr class='hr-long hr-short'>
+					<div class='row equal'>
+						<div class='col-sm-3'>
+							<p class='speaker-name'>$led_by_naglowek</p>
+						</div>
+						<div class='col-sm-9 led-by-tekst'>
+							$led_by_tekst
+						</div>
+					</div>
+					<hr class='hr-long hr-short'>
+					<div class='row equal'>
+						<div class='col-sm-3'>
+							<p class='speaker-name'>$est_time_naglowek</p>
+						</div>
+						<div class='col-sm-9'>
+							<p>$est_time_tekst</p>
+						</div>
+					</div>
+					</div> <!-- END more -->	
+				</div>  
+			</div>";
+    			endwhile;
+			else :
+    			// no rows found
+				endif;		
+			?>			
+	</div> <!-- END "events" -->
+
+	<div class="promotion main-column">
+			<div class="row">
+				<div class="col-sm-6">
+					<h2 class="naglowek"><?php the_field('promotion_naglowek')?></h2>
+				</div>
+				<div class="col-sm-6 promotion-text">
+					<p><?php the_field('promotion_tekst')?></p>
+					<p class='hashtags'><?php the_field('promotion_hashtags')?></p>
+				</div>
+
+			</div>
+	</div> <!-- END "promotion" -->
+
+	<div class="editions main-column">
+			<div class="row">
+				<div class="col-sm-6">
+					<h2 class="naglowek previous-edit-h2"><?php the_field('previous_editions_naglowek')?></h2>
+				</div>
+				<div class="col-sm-6 previous-edit-text">
+			<?php	
+				if( have_rows('previous_editions_tekst') ):
+    					while ( have_rows('previous_editions_tekst') ) : the_row();
+					$prev_title = get_sub_field('previous_edition_title');
+					$prev_link = get_sub_field('previous_edition_link');
+		    			echo "<p><a href='$prev_link' target='_blank'>$prev_title</a></p>";
+    					endwhile;
+					else :
+    					// no rows found
+						endif;		
+					?>
+					</div>
+					</div>
+	</div> <!-- END "editions" -->
+
+	<div class="partners main-column">
+			<div class="row equal">
+				<div class="col-md-5 col-sm-4">
+					<span class="partner"><?php the_field('organiser_naglowek')?></span>
+					<a href="<?php the_field('organiser_link')?>"><img class="img-responsive org-logo" src="<?php the_field('organiser_logo')?>"></a>
+				</div>
+				<div class="col-md-7 col-sm-8">
+					<span class="partner"><?php the_field('partners_naglowek')?></span>
+					<div class="flex-partners"><?php	
+						if( have_rows('partners_logo') ):
+    						while ( have_rows('partners_logo') ) : the_row();
+						$logo_partnera= get_sub_field('logo_partnera');
+						$partner_link = get_sub_field('partner_link');
+		    			echo "<a href='$partner_link' target='_blank'><img class='partner-logo' src='$logo_partnera'></a>";
+    					endwhile;
+					else :
+    					// no rows found
+					endif;		
+					?></div>
+				</div>
+			</div>
+			<div class="info-text"><?php the_field('info_text')?></div>
+
+	</div> <!-- END "partners" -->
+
+	<div class="contact main-column">
+			<h2 class="naglowek"><?php the_field('contact_naglowek')?></h2>
+			<div class="row">
+				<div class="col-sm-6 contact-details">
+					<?php the_field('contact_text')?>
+				</div>
+				<div class="col-sm-6 flex-sm-icons">
+				<?php	
+					if( have_rows('ikony_sm') ):
+    					while ( have_rows('ikony_sm') ) : the_row();
+						$ikona_sm = get_sub_field('ikona_sm');
+						$link_sm = get_sub_field('link_sm');
+		    			echo "<a href='$link_sm' target='_blank'><img class='sm-icons' src='$ikona_sm'></a>";
+    					endwhile;
+					else :
+    					// no rows found
+					endif;		
+					?>
+				</div>
+			</div>
+			<hr class="hr-footer">
+			<div class="row">
+				<div class="col-sm-6">
+					<img class="img-responsive" src="<?php the_field('logo_forum_stopka')?>">
+				</div>
+				<div class="col-sm-6 license-info">
+					<?php the_field('licencja_info')?>
+					
+				</div>
+
+			</div>
+
+
+
+	</div> <!-- END "contact" -->
+
+
+	
+	        
+</div> <!-- END "page-container" -->
 
  
 
 
-<?php get_footer(); ?>
+

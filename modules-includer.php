@@ -27,6 +27,10 @@ if( have_rows('lista_modulow') ):
 
 		elseif( get_row_layout() == 'obrazek_z_tekstem' ):
 			include(locate_template('modules/image-and-text.php'));
+		
+		elseif( get_row_layout() == 'aktualnosci_spoled' ):
+			include(locate_template('modules/image-and-text-landingpage.php'));
+		
 
 		endif;
 	endwhile;

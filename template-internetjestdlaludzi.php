@@ -27,7 +27,7 @@
     <meta name="twitter:site" content="@centrumcyfrowe" />
     <meta name="twitter:image" content="https://centrumcyfrowe.pl/wp-content/themes/cc2018/dist/images/internetjestdlaludzi/ludzie-ziemia.png" />
     <meta name="twitter:creator" content="@centrumcyfrowe" />
-    <link rel="stylesheet" href="https://centrumcyfrowe.pl/wp-content/themes/cc2018/dist/css/internetjestdlaludzi2.css" />
+    <link rel="stylesheet" href="https://centrumcyfrowe.pl/wp-content/themes/cc2018/dist/css/internetjestdlaludzi-7xkwe.css" />
     <link href="https://fonts.googleapis.com/css?family=Muli:400,800|Open+Sans:400&amp;subset=latin-ext" rel="stylesheet">
   </head>
   <body>
@@ -97,7 +97,7 @@
               </a>
             </div>
             <div class="ob-item">
-              <a href="http:/saveyourinternet.eu" target="_blank">
+              <a href="http://pl.saveyourinternet.eu" target="_blank">
               <div class="title-label md pull-10">
                 <h1>Dołącz:</h1><br />
                 <h1>#saveyourinternet</h1>
@@ -249,6 +249,38 @@
           </div>
         </div>
       </article>
+      <h1 class="recent-news">Co nowego na froncie?</h1>
+      <div class="news-slider">
+      <!--\\
+      <?php
+          $args = array(
+              'post_type' => 'czytelnia',
+              'posts_per_page' => 4,
+              'tag' => 'reforma-prawa-autorskiego'
+          );
+          $loop = new wp_Query($args);
+          while($loop->have_posts()) {
+            $loop->the_post();
+      ?>
+      //-->
+      <div>
+      <article>
+        <div class="col1">
+          <div class="card unclickable">
+            <div class="card-body">
+              <a href="<?=get_permalink()?>">
+              <h2 class="card-title"><?=the_title()?></h2>
+              <h2 class="card-title text-muted"><?=the_date()?></h2>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col2">
+          <div class="obrazek z1">&nbsp;</div>
+        </div>
+      </article>
+      </div>
+      <?php } ?>
       </div>
     </section>
     <section id="codalej" class="container-fluid slide slide-4">
@@ -350,7 +382,7 @@
           </a>
           </div>
           <div class="col-md-4">
-            <a href="https://saveyourinternet.eu" target="_blank">
+            <a href="https://pl.saveyourinternet.eu" target="_blank">
             <img src="https://centrumcyfrowe.pl/wp-content/themes/cc2018/dist/images/internetjestdlaludzi/saveyourinternet.png" />
             <p class="mt-4">#SAVEYOURINTERNET</p>
             </a>
@@ -365,6 +397,10 @@
         </div>
         </div>
       </div>
+    <div class="container">
+        Projekt jest realizowany przy wsparciu 
+        <a href="https://www.opensocietyfoundations.org/">Open Society Foundations</a>
+    </div>
     </section>
   <?php get_footer(); ?>
   <div class="overlay-wrapper">
@@ -380,7 +416,7 @@
     </div>
   </div>
   </div>
-  <script src="https://centrumcyfrowe.pl/wp-content/themes/cc2018/dist/js/internetjestdlaludzi2.js"></script>
+  <script src="https://centrumcyfrowe.pl/wp-content/themes/cc2018/dist/js/internetjestdlaludzi-7xkwe.js"></script>
   <script type="text/javascript">var _paq = _paq || []; _paq.push(["trackPageView"]); _paq.push(["enableLinkTracking"]); (function() { var u ="https://piwik.centrumcyfrowe.pl/"; _paq.push(["setTrackerUrl", u+"piwik.php"]); _paq.push(["setSiteId", "3"]); var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript"; g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s); })();</script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-124576176-1"></script>
   <script>

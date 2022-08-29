@@ -54,9 +54,12 @@ get_header();
                     <div class="col-md-8 col-sm-8 col-xs-12">
                         <h1><?php the_field('header-h1-text') ?></h1>
                         <h4><?php the_field('header-subtext') ?></h4>
+                        <?php $button_text = get_field('button-text');
+                        if ($button_text) { ?>
                         <a href="#landing-page" class="button white">
-                            <?php the_field('button-text') ?>
+                            <?php echo $button_text; ?>
                         </a>
+                        <?php } ?>
                     </div>
                 </div>
             </div>

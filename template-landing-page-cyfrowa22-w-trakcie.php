@@ -3,7 +3,7 @@
  * Template name: Landing Page Konferencja Cyfrowa roznorodnosc 2022 - w trakcie
  */
 
-get_header('forum');
+get_header('forum2021');
 ?>
 
 <style>

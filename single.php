@@ -102,6 +102,7 @@
             <div class="row">
 				<div class="col-md-offset-2 col-sm-offset-2 col-xs-offset-0 col-md-8 col-sm-8 col-xs-12 mt-1">
 					<?php comments_template() ?>
+                    <div style="margin-top: -40px;">Komentarz zostanie dodany po zatwierdzeniu przez administratora</div>
 				</div>
 			</div>
 
