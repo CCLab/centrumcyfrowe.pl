@@ -197,7 +197,7 @@ color: #00836a !important;
 $tol = get_field('tekst_obok_logotypu');
 if ($tol) {
   $ltol = get_field('link_tekstu_obok_logotypu');
-  $tol_mobi = get_field('tekst_obok_logotypu_skrocony') || $tol;
+  $tol_mobi = get_field('tekst_obok_logotypu_skrocony') /* || $tol */;
 } else {
   $tol = "Edukacja zdalna w czasie pandemii. Edycja I";
   $tol_mobi = "Edycja I";

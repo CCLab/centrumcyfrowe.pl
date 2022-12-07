@@ -67,22 +67,13 @@ function get_projects() {
         'offset' => ($page_number-1) * $posts_per_page
     ));
 
-if ($projects->have_posts()) {
+    if ($projects->have_posts()) {
         while ($projects->have_posts()) {
             $projects->the_post();
-                $image = get_field('zdjecie-na-liscie');
+            $image = get_field('zdjecie-na-liscie');
+
             ?>
-            <a href="<?php 
-
-	if ( get_field('link_do_strony_projektu') ){
-		echo get_field('link_do_strony_projektu');
-	} else {
-
-		the_permalink(); } 
-		
-
-
-?>" class="article-link">
+            <a href="<?php the_permalink() ?>" class="article-link">
                 <div class="row single-article">
                     <div class="col-md-12 article-container">
                         <span class="project-status <?php

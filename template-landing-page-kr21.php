@@ -1,73 +1,108 @@
 <?php
 	/*
- * Template name: Landing Page Forum
+ * Template name: Landing Page KR21
  */
 
-get_header('forum');
+get_header('kr21');
 ?>
 
 <div class="page-container">
-	<div class="title-container">
-	       <div class="parent-container">	
+	<div class="title-container">	
 		<div class="h1-container">
-			<h1 class="h1-first-line"><?php the_field('tytul_wydarzenia_first_line')?></h1>
-			<h1 class="h1-second-line"><?php the_field('tytul_wydarzenia_second_line')?></h1>
-			<img class="main-img" src="<?php echo the_field('grafika_w_tle') ?>">
-		</div>
+			<h1 class="h1-first-line"><?php the_field('title')?></h1>
 	       </div>	
-		<div class="data-logo">
-		<?php the_field('data_i_miejsce')?>
-		<img class="img-responsive" src="<?php the_field('logo_forum_bez_napisu')?>" />
-		</div>
-
 		
 		
 	</div> <!-- END "title-container" -->
 	
-	<div class="short-desc-container main-column" id="<?php the_field('about_link')?>">
-		<?php the_field('krotki_opis_edycji')?>
-		<!-- <img class="obrazek-w-tle" src="<?php the_field('obrazek_w_tle')?>"> -->
+	<div class="short-desc-container main-column">
+		<div class="menu-id"><?php the_field('krotki_opis_edycji')?></div>
+		<?php $obrazek_w_tle = get_field('obrazek_w_tle'); ?>
+		<img class="obrazek-w-tle" src="<?php echo $obrazek_w_tle['url']?>" alt="<?php echo $obrazek_w_tle['alt']?>"> 
 	</div> <!-- END "short-desc-container" -->
 
-	 <div class="registration main-column">
-			<h2 class="naglowek" id="<?php the_field('registration_link')?>"><?php the_field('registration_naglowek')?></h2>
-			<div class="row registration-info equal">
-			<!-- <div class="col-sm-4 col-xs-12">
-				<a class="button-blue" href="<?php the_field('link_do_przycisku')?>" target="_blank"><?php the_field('napis_na_przycisku')?></a>
-			</div>	-->
-			<!-- <div class="col-sm-8">
-				<?php the_field('rejestracja_daty')?>
-			</div> -->
-			<div class="col-sm-12">
-				<?php the_field('rejestracja_daty')?>
-			</div>
+	 <div class="coordination main-column">
+			<?php the_field('coordination_opis')?>	
 
-				
-			</div>
-				<img class="obrazek-w-tle" src="<?php the_field('obrazek_w_tle')?>">
-	</div> <!-- END "registration" -->
+			<p class="our-team"><?php the_field('team_naglowek')?></p>
 
+			<div class="row">
 
-	<div class="long-desc-container main-column">
-		<?php the_field('dluzszy_opis')?>
-		<div class="row ikony-z-opisami">
-			<?php	
-			if( have_rows('ikony_z_opisami') ):
-    			while ( have_rows('ikony_z_opisami') ) : the_row();
-			$ikona = get_sub_field('ikona');
-        	$opis_ikony = get_sub_field('opis_ikony');
-		    echo "<div class='col-sm-3'> <img class='img-responsive icon' src='$ikona'> <p class='icon-text'> $opis_ikony</p></div>";
+		<?php	
+			if( have_rows('coordination_osoby') ):
+    			while ( have_rows('coordination_osoby') ) : the_row();
+				$coordination_foto = get_sub_field('coordination_foto');
+				$coordination_name = get_sub_field('coordination_name');
+        			$coordination_role = get_sub_field('coordination_role');
+				$coordination_affil = get_sub_field('coordination_affil');
+		?>		
+		    <div class="col-sm-6 speaker-info">
+				  	    <div class="row">
+				  		    <div class="col-sm-4">
+				  			    <img class="img-responsive speaker-foto" src="<?php echo $coordination_foto['url']?>" alt="<?php echo $coordination_foto['alt']?>"> 
+				  		    </div>
+						    <div class="col-sm-8">
+						    <p class="speaker-name"> <?php echo $coordination_name ?> </p> 
+						    <p class="speaker-affil"> <?php echo $coordination_role ?></p>
+						    <p class="speaker-country"> <?php echo $coordination_affil ?></p>
+					  	    </div>
+				  	    </div>
+                  </div>
+			<?php	  
     			endwhile;
 			else :
     			// no rows found
 				endif;		
-			?>
-		</div> <!-- END "ikony-z-opisami" -->
+			?>		  </div>
+			
+	</div> <!-- END "coordination" -->
 
-	</div> <!-- END "long-desc-container" -->
+	<div class="study main-column">
+			<?php the_field('study_opis')?>	
 
+	</div> <!-- END "study" -->
+
+	<!-- <div class="seminar main-column">
+			<?php the_field('seminar_naglowek')?>	
+
+	</div> <!-- END "seminar" -->
+
+		<div class="contact main-column">
+			<?php the_field('contact')?>
+			<div class="row">
+				<div class="col-sm-6 contact-details">
+					<?php the_field('contact_text')?>
+				</div>
+				<div class="col-sm-6 flex-sm-icons">
+				<?php	
+					if( have_rows('ikony_sm') ):
+    					while ( have_rows('ikony_sm') ) : the_row();
+						$ikona_sm = get_sub_field('ikona_sm');
+						$link_sm = get_sub_field('link_sm');
+		    			echo "<a href='$link_sm' target='_blank'><img class='sm-icons' src='$ikona_sm'></a>";
+    					endwhile;
+					else :
+    					// no rows found
+					endif;		
+					?>
+				</div>
+			</div>
+			<hr class="hr-footer">
+			
+			<div class="license-info"><?php the_field('licencja_info')?></div>
+					
+				
+
+			</div>
+
+
+
+	</div> <!-- END "contact" -->
+
+
+	<!-- 
 	<div class="programme main-column">
-			<h2 class="naglowek" id="<?php the_field('program_link')?>"><?php the_field('naglowek')?></h2>
+			<h2 class="naglowek" id="<?php the_field('program_link')?>"><?php the_field('')?></h2>
 			<div class="row equal hidden-xs">
 				<div class="col-sm-6 blue-date">
 					<p class="program-date"><?php the_field('dzien_pierwszy_data')?></p>
@@ -104,7 +139,7 @@ get_header('forum');
     				// no rows found
 				endif;		
 				?>
-				
+				-->
 			<!-- Programme only mobile -->
 
 				<div class="blue-date visible-xs">
@@ -154,8 +189,9 @@ get_header('forum');
 			<!-- END Programme only mobile -->
 			
 		<!--	<div class="program-info"><?php the_field('program_info')?></div> -->
-			<hr class='hr-programme'>
-	</div> <!-- END "programme" -->
+			<!-- <hr class='hr-programme'> -->
+<!--	</div> --> <!-- END "programme" -->
+
 
 	<!-- <div class="registration main-column">
 			<h2 class="naglowek" id="<?php the_field('registration_link')?>"><?php the_field('registration_naglowek')?></h2>
@@ -171,7 +207,7 @@ get_header('forum');
 	</div> <!-- END "registration" --> 
 			
 	
-	<div class="participation main-column">
+<!--	<div class="participation main-column">
 			
 			<h2 class="naglowek"><?php the_field('participation_naglowek')?></h2>
 			
@@ -191,9 +227,9 @@ get_header('forum');
 		
 			</div> <!-- END "particip-type-column" -->
 
-	</div> <!-- END "participation" -->
+	</div>  <!-- END "participation" -->
 
-	<div class="report main-column">
+	<!-- <div class="report main-column">
 			<h2 class="naglowek" id="<?php the_field('report_link')?>"><?php the_field('report_naglowek')?></h2>
 			<div class="row">
 				<div class="col-sm-3">
@@ -235,7 +271,7 @@ get_header('forum');
 
 	</div> <!-- END "report" -->
 	
-	<div class="lt-talks main-column">
+<!--	<div class="lt-talks main-column">
 			<h2 class="naglowek" id="<?php the_field('lttalks_link')?>"><?php the_field('lightning_talks_naglowek')?></h2>
 			<div class="row">
 				<div class="col-sm-8">
@@ -276,7 +312,7 @@ get_header('forum');
 
 	</div> <!-- END "lt-talks" -->
 
-	<div class="events main-column">
+<!--	<div class="events main-column">
 			<div class="events-naglowek"><h2 class="naglowek" id="<?php the_field('events_link')?>"><?php the_field('events_naglowek')?></h2></div>
 				<?php	
 			if( have_rows('events_list') ):
@@ -337,7 +373,7 @@ get_header('forum');
 			?>			
 	</div> <!-- END "events" -->
 
-	<div class="promotion main-column">
+<!--	<div class="promotion main-column">
 			<div class="row">
 				<div class="col-sm-6">
 					<h2 class="naglowek"><?php the_field('promotion_naglowek')?></h2>
@@ -350,7 +386,7 @@ get_header('forum');
 			</div>
 	</div> <!-- END "promotion" -->
 
-	<div class="editions main-column">
+<!--	<div class="editions main-column">
 			<div class="row">
 				<div class="col-sm-6">
 					<h2 class="naglowek previous-edit-h2"><?php the_field('previous_editions_naglowek')?></h2>
@@ -371,7 +407,7 @@ get_header('forum');
 					</div>
 	</div> <!-- END "editions" -->
 
-	<div class="partners main-column">
+<!--	<div class="partners main-column">
 			<div class="row equal">
 				<div class="col-md-5 col-sm-4">
 					<span class="partner"><?php the_field('organiser_naglowek')?></span>
@@ -396,48 +432,13 @@ get_header('forum');
 
 	</div> <!-- END "partners" -->
 
-	<div class="contact main-column">
-			<h2 class="naglowek"><?php the_field('contact_naglowek')?></h2>
-			<div class="row">
-				<div class="col-sm-6 contact-details">
-					<?php the_field('contact_text')?>
-				</div>
-				<div class="col-sm-6 flex-sm-icons">
-				<?php	
-					if( have_rows('ikony_sm') ):
-    					while ( have_rows('ikony_sm') ) : the_row();
-						$ikona_sm = get_sub_field('ikona_sm');
-						$link_sm = get_sub_field('link_sm');
-		    			echo "<a href='$link_sm' target='_blank'><img class='sm-icons' src='$ikona_sm'></a>";
-    					endwhile;
-					else :
-    					// no rows found
-					endif;		
-					?>
-				</div>
-			</div>
-			<hr class="hr-footer">
-			<div class="row">
-				<div class="col-sm-6">
-					<img class="img-responsive" src="<?php the_field('logo_forum_stopka')?>">
-				</div>
-				<div class="col-sm-6 license-info">
-					<?php the_field('licencja_info')?>
-					
-				</div>
-
-			</div>
-
-
-
-	</div> <!-- END "contact" -->
 
 
 	
 	        
 </div> <!-- END "page-container" -->
 
- 
 <?php wp_footer(); ?>
+
 
 
