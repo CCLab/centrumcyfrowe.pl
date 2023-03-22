@@ -80,7 +80,7 @@
 
      	      <a href="<?php the_field('link_logo_kr21')?>">
 			<?php $logo_kr21 = get_field('logo_kr21'); ?>
-                    <img class="img-responsive img-nav img-logo-centrum logo-dark" src="<?php echo $logo_kr21['url']?>" alt="<?php echo $logo_kr21['alt']?>">                 </a>
+                    <img class="img-responsive img-nav img-logo-centrum logo-dark img-logo-kr21" src="<?php echo $logo_kr21['url']?>" alt="<?php echo $logo_kr21['alt']?>">                 </a>
 		<button id="hamburger" class="hamburger hamburger-dark"><img class="img-responsive img-nav hamburger-icon" src="/wp-content/themes/cc2018/dist/images/strona_forum/hamburger_menu.svg"></button>
   		 <button id="cross" class="cross" style="display: none"><img class="img-responsive img-nav hamburger-icon cross-icon" src="/wp-content/themes/cc2018/dist/images/strona_forum/cross.svg"></button>
 			<div class="menu">

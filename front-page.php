@@ -107,13 +107,20 @@ p.black{color:#2a2a2a}
                             ?>
 
                                 <div class="swiper-slide project <?php echo $tooltipEnabled ? 'tooltip-enabled' : '' ?>">
-                                    <a href="<?php echo the_permalink() ?>">
-                                        <div style="background-image: url(<?php echo $obrazek['url'] ?>)">
-                                            <h3 class="white"><?php the_title() ?></h3>
-                                            <button class="button button-small orange"><?php echo get_field('tekst-na-przycisku') ?></button>
-                                        </div>
-                                    </a>
-									
+                                   <a href="<?php 
+
+					if ( get_field('link_do_strony_projektu') ){
+					echo get_field('link_do_strony_projektu');
+					} else {
+
+					the_permalink(); }
+					?>">
+		
+		<div style="background-image: url(<?php echo $obrazek['url'] ?>)">
+			<h3 class="white"><?php the_title() ?></h3>
+			<button class="button button-small orange"><?php echo get_field('tekst-na-przycisku') ?></button>
+		</div>
+	</a>				
 									 <?php 
 										$currentLanguage  = pll_current_language();
 										if ( $currentLanguage == "en" ) {
@@ -141,7 +148,7 @@ p.black{color:#2a2a2a}
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <a href="<?php the_field('projekty-przycisk-odnosnik-2') ?>?filtr=wyroznione" class="button orange"><?php the_field('projekty-przycisk-tekst') ?></a>
+                        <a href="<?php the_field('projekty-przycisk-odnosnik-2') ?>" class="button orange"><?php the_field('projekty-przycisk-tekst') ?></a>
                     </div>
                 </div> <!-- </.row> -->
             </div>
